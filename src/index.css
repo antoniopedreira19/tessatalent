@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark Theme - Based on TESSA brand colors */
+    --background: 218 85% 18%;
+    --foreground: 0 0% 84%;
+
+    --card: 218 70% 14%;
+    --card-foreground: 0 0% 84%;
+
+    --popover: 218 70% 14%;
+    --popover-foreground: 0 0% 84%;
+
+    --primary: 0 0% 84%;
+    --primary-foreground: 218 85% 18%;
+
+    --secondary: 218 50% 25%;
+    --secondary-foreground: 0 0% 84%;
+
+    --muted: 218 60% 22%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 199 89% 48%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 218 50% 28%;
+    --input: 218 50% 25%;
+    --ring: 199 89% 48%;
+
+    --radius: 0.75rem;
+
+    /* Brand tokens - #042558 and #D7D7D7 */
+    --navy: 218 85% 18%;
+    --navy-light: 218 60% 25%;
+    --navy-dark: 218 90% 12%;
+    --slate: 0 0% 65%;
+    --slate-light: 0 0% 84%;
+    --ice: 0 0% 95%;
+    --ice-blue: 199 89% 48%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(218 90% 12%) 0%, hsl(218 85% 18%) 50%, hsl(218 60% 25%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(199 89% 48%) 0%, hsl(187 85% 43%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(218 85% 18%) 0%, hsl(218 70% 14%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(218 70% 16%) 0%, hsl(218 70% 12%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.3);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.4), 0 2px 4px -2px hsl(0 0% 0% / 0.3);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.4), 0 4px 6px -4px hsl(0 0% 0% / 0.3);
+    --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.4), 0 8px 10px -6px hsl(0 0% 0% / 0.3);
+    --shadow-glow: 0 0 40px hsl(199 89% 48% / 0.3);
+    --shadow-glow-strong: 0 0 60px hsl(199 89% 48% / 0.4);
+
+    --sidebar-background: 218 90% 12%;
+    --sidebar-foreground: 0 0% 84%;
+    --sidebar-primary: 199 89% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 218 60% 25%;
+    --sidebar-accent-foreground: 0 0% 84%;
+    --sidebar-border: 218 50% 28%;
+    --sidebar-ring: 199 89% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-accent);
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .bg-gradient-subtle {
+    background: var(--gradient-subtle);
+  }
+
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-glow-strong {
+    box-shadow: var(--shadow-glow-strong);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 3s linear infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Grid pattern for hero - subtle on dark */
+.grid-pattern {
+  background-image: 
+    linear-gradient(hsl(199 89% 48% / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(199 89% 48% / 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Connection lines pattern - subtle dots */
+.connection-pattern {
+  background-image: radial-gradient(hsl(199 89% 48% / 0.15) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* Glowing border effect */
+.glow-border {
+  position: relative;
+}
+
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: var(--gradient-accent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.glow-border:hover::before {
+  opacity: 0.5;
+}
