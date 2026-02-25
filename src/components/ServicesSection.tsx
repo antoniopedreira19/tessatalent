@@ -21,10 +21,10 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="bg-gradient-to-br from-[hsl(231,68%,40%)] to-[hsl(231,80%,16%)] py-16 px-4 md:px-8 text-white min-h-screen flex items-center">
+    <section id="services" className="bg-gradient-to-br from-[hsl(231,68%,40%)] to-[hsl(231,80%,16%)] py-12 md:py-16 px-4 md:px-8 text-white min-h-[auto] md:min-h-screen flex items-center">
       <div className="max-w-5xl mx-auto w-full">
-        <AnimatedSection className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
+        <AnimatedSection className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6 tracking-tight">
             Mais cuidado. Mais performance.
           </h2>
           <div className="space-y-4 max-w-3xl mx-auto text-[15px] md:text-base text-blue-50 font-medium">
@@ -37,16 +37,16 @@ const ServicesSection = () => {
               acompanhamento antes, durante e depois da contratação.
             </p>
           </div>
-          <h3 className="text-2xl md:text-3xl font-bold mt-10 tracking-tight">
+          <h3 className="text-xl md:text-3xl font-bold mt-8 md:mt-10 tracking-tight">
             Tudo com 3 modelos flexíveis:
           </h3>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-8 md:mt-10">
           {services.map((service, idx) => (
             <motion.div
               key={service.title}
-              className="relative rounded-lg overflow-hidden aspect-[3/4] shadow-[10px_10px_0px_0px_rgba(30,30,40,0.6)] flex flex-col justify-end group transition-transform hover:-translate-y-1"
+              className="relative rounded-lg overflow-hidden aspect-[4/5] md:aspect-[3/4] shadow-[10px_10px_0px_0px_rgba(30,30,40,0.6)] flex flex-col justify-end group transition-transform hover:-translate-y-1"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}

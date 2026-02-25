@@ -3,9 +3,9 @@ import AnimatedSection from "./AnimatedSection";
 
 const CaseSection = () => {
   return (
-    <section id="case" className="bg-white py-16 px-6 md:px-8 font-sans text-gray-900 max-w-5xl mx-auto">
-      <AnimatedSection className="mb-14">
-        <h2 className="text-[40px] md:text-[48px] font-medium mb-4 tracking-tight text-black">
+    <section id="case" className="bg-white py-12 md:py-16 px-4 md:px-8 font-sans text-gray-900 max-w-5xl mx-auto">
+      <AnimatedSection className="mb-10 md:mb-14">
+        <h2 className="text-[32px] md:text-[48px] font-medium mb-4 tracking-tight text-black">
           Case iForense
         </h2>
         <p className="text-[15px] md:text-base text-gray-800 max-w-2xl leading-relaxed">
@@ -13,7 +13,7 @@ const CaseSection = () => {
         </p>
       </AnimatedSection>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mb-14">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-10 md:mb-14">
         {[
           {
             icon: (

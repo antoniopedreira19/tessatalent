@@ -15,15 +15,15 @@ const StatsAndContentSection = () => {
   return (
     <>
       {/* Stats */}
-      <section className="relative w-full h-[500px] md:h-[600px] flex items-center overflow-hidden">
+      <section className="relative w-full h-[400px] md:h-[600px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src={teamWorking} alt="Equipe trabalhando" className="w-full h-full object-cover" loading="lazy" decoding="async" />
           <div className="absolute inset-0 bg-black/60" />
         </div>
-        <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-8 w-full">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-8 w-full">
           <AnimatedSection className="max-w-2xl">
             <motion.h2
-              className="text-[100px] md:text-[140px] font-bold text-white leading-none mb-4 tracking-tighter"
+              className="text-[72px] md:text-[140px] font-bold text-white leading-none mb-4 tracking-tighter"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -31,7 +31,7 @@ const StatsAndContentSection = () => {
             >
               82%
             </motion.h2>
-            <p className="text-white text-xl md:text-2xl font-medium leading-relaxed max-w-lg">
+            <p className="text-white text-lg md:text-2xl font-medium leading-relaxed max-w-lg">
               é o aumento em retenção das empresas que adotam processos estruturados de onboarding, segundo a <span className="font-bold text-gray-200">Brandon Hall Group</span>
             </p>
           </AnimatedSection>
@@ -39,15 +39,15 @@ const StatsAndContentSection = () => {
       </section>
 
       {/* Content/Blog */}
-      <section id="content" className="bg-gradient-to-b from-[#1a3abf] to-[#0d1f8a] py-20 px-6 font-sans text-white">
+      <section id="content" className="bg-gradient-to-b from-[#1a3abf] to-[#0d1f8a] py-14 md:py-20 px-4 md:px-6 font-sans text-white">
         <div className="max-w-6xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-normal mb-12 tracking-tight">
+            <h2 className="text-2xl md:text-4xl font-normal mb-8 md:mb-12 tracking-tight">
               Conteúdos <span className="font-bold">tessa</span> talent
             </h2>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mb-12 md:mb-16">
             {blogPosts.map((post, idx) => (
               <motion.div
                 key={idx}
