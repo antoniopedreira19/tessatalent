@@ -1,70 +1,87 @@
-import { Check } from "lucide-react";
 import advisorPhoto from "@/assets/advisor-photo.png";
 import ceoMarcelo from "@/assets/ceo-marcelo.png";
 
 const checkItems = [
-  "Validação técnica em processos seletivos",
-  "Mentoria para novos líderes tech",
-  "Consultoria para estruturação de times",
-  "Apoio em decisões de arquitetura e stack",
+  "Histórico real como CTOs e CIOs",
+  "Experiência prática em crescimento, crise, correção de rota e escala",
+  "Visão de tecnologia aplicada a negócio",
+  "Atuação independente, sem conflito de interesse",
 ];
 
 const TechAdvisorsSection = () => {
   return (
-    <section id="tech-advisors" className="py-20 lg:py-28 bg-background">
-      <div className="container mx-auto px-4 lg:px-8">
-        {/* Main content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
-          <div>
-            <img
-              src={advisorPhoto}
-              alt="Tech Advisor"
-              className="w-full max-w-md mx-auto rounded-2xl object-cover"
-            />
+    <section id="tech-advisors" className="bg-background py-16 px-4 md:px-8 text-foreground max-w-5xl mx-auto">
+      
+      {/* --- BLOCO SUPERIOR --- */}
+      <div className="flex flex-col md:flex-row gap-10 items-center mb-24">
+        
+        {/* Imagem Esquerda */}
+        <div className="w-full md:w-5/12">
+          <img
+            src={advisorPhoto}
+            alt="Tech Advisor"
+            className="w-full h-[480px] object-cover rounded-[24px]"
+          />
+        </div>
+
+        {/* Conteúdo Direita */}
+        <div className="w-full md:w-7/12 flex flex-col items-start">
+          <h2 className="text-[28px] md:text-[32px] font-semibold mb-6 text-foreground tracking-tight">
+            Conheça nossos Tech Advisors
+          </h2>
+          <p className="text-muted-foreground mb-6 leading-relaxed text-[15px]">
+            A <strong className="text-foreground">tessa</strong> possui uma rede de Advisors que tomam decisões em momentos críticos e de escala, com impacto direto em pessoas e nas dinâmicas de empresas como{" "}
+            <strong className="text-foreground">Creditas, iFood, EBX, Dafiti e Olist.</strong>
+          </p>
+          <p className="text-muted-foreground mb-4 text-[15px]">São advisors com:</p>
+          <ul className="space-y-3 mb-8">
+            {checkItems.map((item, idx) => (
+              <li key={idx} className="flex items-start gap-3">
+                <svg className="w-4 h-4 mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="2" y="2" width="20" height="20" rx="3" stroke="hsl(var(--primary))" strokeWidth="1.5" fill="transparent"/>
+                  <path d="M7 12L10.5 15.5L18 8" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <span className="text-muted-foreground text-[15px]">{item}</span>
+              </li>
+            ))}
+          </ul>
+          <button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 px-8 rounded-full transition-colors text-[15px]">
+            Saiba mais
+          </button>
+        </div>
+      </div>
+
+      {/* --- BLOCO INFERIOR (DEPOIMENTO) --- */}
+      <div className="flex flex-col-reverse md:flex-row gap-12 md:gap-20 items-center">
+        
+        {/* Texto do Depoimento */}
+        <div className="w-full md:w-2/3">
+          <div className="text-primary mb-6">
+            <svg width="60" height="45" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" />
+            </svg>
           </div>
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Conheça nossos Tech Advisors
-            </h2>
-            <p className="text-muted-foreground mb-6 leading-relaxed">
-              Nossa rede conta com profissionais que passaram por empresas como{" "}
-              <strong className="text-foreground">Creditas</strong>,{" "}
-              <strong className="text-foreground">iFood</strong>,{" "}
-              <strong className="text-foreground">EBX</strong>,{" "}
-              <strong className="text-foreground">Dafiti</strong> e{" "}
-              <strong className="text-foreground">Olist</strong>. Eles trazem experiência prática para validar e acelerar seu processo.
+          <div className="text-muted-foreground text-[15px] leading-relaxed space-y-5">
+            <p>
+              Os <strong className="text-foreground">tessa</strong> advisors entram antes da execução para avaliar cenários, mapear riscos e orientar decisões. Oferecemos mentorias para líderes e entregamos uma opinião técnica estratégica, conectando <span className="text-primary font-semibold">tecnologia à estratégia de negócio</span>.
             </p>
-            <ul className="space-y-3 mb-8">
-              {checkItems.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-muted-foreground">
-                  <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <button className="inline-flex items-center justify-center h-12 px-8 rounded-lg text-base font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-opacity">
-              Saiba mais
-            </button>
+            <p>
+              Nossos advisors vão ajudar sua empresa com arquitetura, estrutura de time, liderança técnica, organização das prioridades e investimentos, traduzindo com clareza os problemas estruturais e ruídos operacionais para CEOs, CFOs e conselheiros."
+            </p>
+          </div>
+          <div className="mt-8">
+            <p className="font-bold text-foreground text-[15px]">Marcelo Pedreira</p>
+            <p className="text-muted-foreground text-[14px]">CEO da Tessa Talent</p>
           </div>
         </div>
 
-        {/* CEO Quote */}
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="text-6xl text-primary/20 font-serif leading-none mb-4">"</div>
-          <blockquote className="text-lg md:text-xl text-foreground italic leading-relaxed mb-8">
-            Acreditamos que contratar bem é uma forma de cuidar. Por isso, cada processo é tratado com a profundidade que ele merece.
-          </blockquote>
-          <div className="flex items-center justify-center gap-4">
-            <img
-              src={ceoMarcelo}
-              alt="Marcelo Pedreira"
-              className="w-14 h-14 rounded-full object-cover"
-            />
-            <div className="text-left">
-              <p className="font-bold text-foreground">Marcelo Pedreira</p>
-              <p className="text-sm text-muted-foreground">CEO, Tessa Talent</p>
-            </div>
-          </div>
+        {/* Imagem do Perfil (Redonda) */}
+        <div className="w-full md:w-1/3 flex justify-center md:justify-end">
+          <img
+            src={ceoMarcelo}
+            alt="Marcelo Pedreira"
+            className="w-56 h-56 md:w-[280px] md:h-[280px] rounded-full object-cover"
+          />
         </div>
       </div>
     </section>
