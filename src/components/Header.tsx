@@ -1,6 +1,6 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import tessaLogo from "@/assets/tessa-logo-white.png";
+
 
 const navItems = [
   { label: "Serviços", id: "services" },
@@ -25,7 +25,7 @@ const Header = () => {
             className="cursor-pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            <img src={tessaLogo} alt="Tessa" className="h-8 lg:h-10" />
+            <img src="/images/tessa-logo-white.png" alt="Tessa" className="h-8 lg:h-10" />
           </div>
 
           <nav className="hidden md:flex items-center gap-8">

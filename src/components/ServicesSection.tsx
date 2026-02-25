@@ -1,22 +1,19 @@
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
-import serviceHunting from "@/assets/service-hunting.svg";
-import serviceAlocacao from "@/assets/service-alocacao.svg";
-import serviceOndemand from "@/assets/service-ondemand.svg";
 
 const services = [
   {
-    image: serviceHunting,
+    image: "/images/service-hunting.svg",
     title: "Hunting",
     description: "Identificamos e atraímos talentos para posições críticas ou não. Cada processo é personalizado para encontrar o profissional ideal para a vaga e cultura da empresas.",
   },
   {
-    image: serviceAlocacao,
+    image: "/images/service-alocacao.svg",
     title: "Alocação",
     description: "Montamos equipes inteiras prontas para operar. Desde desenvolvedores até tech leads, formamos times alinhados tecnicamente e culturalmente com seu projeto.",
   },
   {
-    image: serviceOndemand,
+    image: "/images/service-ondemand.svg",
     title: "As a Service",
     description: "Profissionais sênior como CTO, DevOps ou DBA disponíveis para demandas pontuais. Expertise de alto nível sem o custo fixo de uma contratação permanente.",
   },

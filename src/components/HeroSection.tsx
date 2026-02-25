@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
-import heroWoman from "@/assets/hero-woman.jpg";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden">
       <img
-        src={heroWoman}
+        src="/images/hero-woman.jpg"
         alt="Profissional sorrindo"
         className="absolute inset-0 w-full h-full object-cover"
         loading="eager"
