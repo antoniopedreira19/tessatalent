@@ -91,7 +91,7 @@ const TechAdvisorsSection = () => {
           <img
             src={ceoMarcelo}
             alt="Marcelo Pedreira"
-            className="w-56 h-56 md:w-[280px] md:h-[280px] rounded-full object-cover"
+            className="w-56 h-56 md:w-[280px] md:h-[280px] rounded-full object-cover object-top"
             loading="lazy"
             decoding="async"
           />
