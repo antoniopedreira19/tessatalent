@@ -62,8 +62,11 @@ const CallToActionSection = () => {
           ))}
         </div>
 
-        <motion.button
-          className="bg-[#3b5ae5] hover:bg-blue-700 text-white font-semibold py-4 px-10 rounded-full transition-all shadow-md text-[16px]"
+        <motion.a
+          href="https://wa.me/5541996855782"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-[#3b5ae5] hover:bg-blue-700 text-white font-semibold py-4 px-10 rounded-full transition-all shadow-md text-[16px]"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}
           initial={{ opacity: 0, y: 20 }}
@@ -72,7 +75,7 @@ const CallToActionSection = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           Fale com o especialista
-        </motion.button>
+        </motion.a>
       </div>
     </section>
   );
