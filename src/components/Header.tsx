@@ -17,14 +17,14 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div
             className="cursor-pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            <span className="text-2xl lg:text-3xl font-extrabold text-foreground tracking-tight">tessa</span>
+            <span className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight">tessa</span>
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -32,7 +32,7 @@ const Header = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-muted-foreground hover:text-foreground transition-colors font-medium text-sm"
+                className="text-white/80 hover:text-white transition-colors font-medium text-sm"
               >
                 {item.label}
               </button>
@@ -40,18 +40,18 @@ const Header = () => {
           </nav>
 
           <button className="md:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMenuOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
           </button>
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border animate-fade-in">
-            <nav className="flex flex-col gap-4">
+          <div className="md:hidden py-4 border-t border-white/20 animate-fade-in bg-foreground/80 backdrop-blur-md rounded-b-lg">
+            <nav className="flex flex-col gap-4 px-2">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-muted-foreground hover:text-foreground transition-colors font-medium text-left py-2"
+                  className="text-white/80 hover:text-white transition-colors font-medium text-left py-2"
                 >
                   {item.label}
                 </button>

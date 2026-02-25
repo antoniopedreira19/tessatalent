@@ -3,16 +3,14 @@ import heroWoman from "@/assets/hero-woman.jpg";
 const HeroSection = () => {
   return (
     <section className="relative min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden">
-      {/* Full background image */}
       <img
         src={heroWoman}
         alt="Profissional sorrindo"
         className="absolute inset-0 w-full h-full object-cover"
       />
-      {/* Dark overlay for text readability */}
       <div className="absolute inset-0 bg-foreground/50" />
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-28 pb-16">
+      <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-24 pb-16">
         <div className="max-w-2xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
             Pessoas certas<br />no contexto certo
