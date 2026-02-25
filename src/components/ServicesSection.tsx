@@ -42,11 +42,11 @@ const ServicesSection = () => {
           </h3>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
           {services.map((service, idx) => (
             <motion.div
               key={service.title}
-              className="relative rounded-sm overflow-hidden h-[450px] shadow-[10px_10px_0px_0px_rgba(30,30,40,0.6)] flex flex-col justify-end group transition-transform hover:-translate-y-1"
+              className="relative rounded-lg overflow-hidden aspect-[3/4] shadow-[10px_10px_0px_0px_rgba(30,30,40,0.6)] flex flex-col justify-end group transition-transform hover:-translate-y-1"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
