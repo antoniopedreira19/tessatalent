@@ -1,10 +1,10 @@
 const Footer = () => {
   return (
-    <footer className="bg-white pt-20 pb-10 px-6" style={{ fontFamily: "'Sansation', sans-serif" }}>
+    <footer className="bg-white pt-12 pb-8 px-6" style={{ fontFamily: "'Sansation', sans-serif" }}>
       <div className="max-w-5xl mx-auto">
         
         {/* Bloco de Contato */}
-        <div className="mb-24">
+        <div className="mb-12">
           <h2 className="text-[40px] md:text-[48px] font-medium text-black mb-6 tracking-tight leading-tight">
             Fale com a <span className="font-bold text-black">tessa</span> Talent
           </h2>
