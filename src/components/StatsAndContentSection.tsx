@@ -17,7 +17,7 @@ const StatsAndContentSection = () => {
       {/* Stats */}
       <section className="relative w-full h-[500px] md:h-[600px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src={teamWorking} alt="Equipe trabalhando" className="w-full h-full object-cover" loading="lazy" />
+          <img src={teamWorking} alt="Equipe trabalhando" className="w-full h-full object-cover" loading="lazy" decoding="async" />
           <div className="absolute inset-0 bg-black/60" />
         </div>
         <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-8 w-full">
@@ -64,6 +64,7 @@ const StatsAndContentSection = () => {
                     alt={post.title}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <h3 className="text-xl md:text-[22px] font-medium leading-snug hover:text-blue-200 transition-colors">

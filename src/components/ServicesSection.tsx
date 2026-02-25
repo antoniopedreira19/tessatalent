@@ -60,6 +60,7 @@ const ServicesSection = () => {
                 alt={service.title}
                 className="absolute inset-0 w-full h-full object-cover z-0"
                 loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10" />
               <div className="relative z-20 p-6">
