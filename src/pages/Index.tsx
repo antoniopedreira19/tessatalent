@@ -1,13 +1,12 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import ProblemSection from "@/components/ProblemSection";
 import ServicesSection from "@/components/ServicesSection";
+import TechAdvisorsSection from "@/components/TechAdvisorsSection";
 import MethodologySection from "@/components/MethodologySection";
-
-
 import CaseSection from "@/components/CaseSection";
-import WhyChooseSection from "@/components/WhyChooseSection";
+import StatsAndContentSection from "@/components/StatsAndContentSection";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -15,15 +14,14 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        <ProblemSection />
         <ServicesSection />
+        <TechAdvisorsSection />
         <MethodologySection />
-        
-        
         <CaseSection />
-        <WhyChooseSection />
+        <StatsAndContentSection />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
