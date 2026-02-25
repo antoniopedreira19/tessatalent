@@ -1,117 +1,103 @@
-import { Lightbulb, RefreshCw, CheckCircle2 } from "lucide-react";
+const steps = [
+  {
+    title: "Kick-off Aprofundado",
+    description: "Reunião estratégica para entender desafios, cultura e expectativas do time.",
+  },
+  {
+    title: "Mapeamento de Cultura",
+    description: "Análise detalhada do fit cultural necessário para sucesso na posição.",
+  },
+  {
+    title: "Definição de Perfil Ideal",
+    description: "Construção do perfil técnico e comportamental necessário para o contexto.",
+  },
+  {
+    title: "Suporte ao Onboarding",
+    description: "Apoio durante a integração para maximizar as chances de sucesso.",
+  },
+  {
+    title: "Métricas de Performance",
+    description: "Acompanhamento de indicadores de adaptação e produtividade.",
+  },
+  {
+    title: "Rituais de Feedback",
+    description: "Check-ins regulares com empresa e profissional.",
+  },
+];
 
 const MethodologySection = () => {
   return (
-    <section id="methodology" className="py-20 lg:py-32 bg-card">
-      <div className="container mx-auto px-4 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-sm font-semibold text-accent uppercase tracking-wider">Diferenciais</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-6">
-            Nossa Metodologia
+    <section id="methodology" className="bg-gradient-to-b from-[hsl(231,68%,42%)] to-[hsl(231,80%,11%)] py-16 px-6 text-white min-h-screen flex items-center">
+      <div className="max-w-5xl mx-auto w-full">
+
+        {/* Cabeçalho */}
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-6">
+          <h2 className="text-3xl md:text-4xl font-normal tracking-tight">
+            Método <span className="font-bold">tessa</span> talent
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Combinamos advisory estratégico com acompanhamento contínuo para garantir o sucesso de cada contratação.
+          <p className="text-[15px] md:text-base text-gray-100 leading-relaxed font-medium">
+            Dê adeus à falta de suporte, processos lentos, desalinhamento e custos
+            ocultos. Nós garantimos fit cultural e técnico, reduzindo turnover com
+            validação rigorosa.
+          </p>
+          <p className="text-[15px] md:text-base text-gray-100 font-medium">
+            São seis passos divididos em consultoria e acompanhamento:
           </p>
         </div>
 
-        {/* Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* Advisory Estratégico */}
-          <div className="group">
-            <div className="bg-background rounded-2xl p-8 lg:p-10 border border-border/40 hover:border-accent/40 transition-all duration-300">
-              <div className="w-14 h-14 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center mb-6">
-                <Lightbulb className="w-7 h-7 text-accent" />
-              </div>
-              
-              <h3 className="text-2xl font-bold text-foreground mb-4">
-                Advisory Estratégico
+        {/* Grid Principal */}
+        <div className="flex flex-col md:flex-row gap-12 md:gap-20">
+
+          {/* Coluna Esquerda (Macro-fases) */}
+          <div className="w-full md:w-5/12 flex flex-col justify-between py-2">
+            <div>
+              <h3 className="text-[32px] font-medium leading-[1.1] mb-5">
+                Consultoria<br />estratégica
               </h3>
-              
-              <p className="text-muted-foreground mb-8 leading-relaxed">
-                Antes de iniciar qualquer processo, mergulhamos no contexto do seu negócio para entender não apenas a vaga, mas o impacto que ela terá na organização.
+              <p className="text-[15px] text-gray-200 leading-relaxed font-medium">
+                Antes de iniciar o processo, mergulhamos no contexto do seu
+                negócio para entender não apenas a vaga, mas o impacto que ela
+                terá na organização.
               </p>
+            </div>
 
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-4 h-4 text-accent" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Kick-off Aprofundado</h4>
-                    <p className="text-sm text-muted-foreground">Reunião estratégica para entender desafios, cultura e expectativas do time.</p>
-                  </div>
-                </div>
+            {/* Separador visual */}
+            <div className="flex justify-center md:justify-start md:pl-16 my-10 opacity-60">
+              <svg width="24" height="40" viewBox="0 0 24 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white">
+                <path d="M4 8L12 16L20 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.3" />
+                <path d="M4 16L12 24L20 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.6" />
+                <path d="M4 24L12 32L20 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="1" />
+              </svg>
+            </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-4 h-4 text-accent" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Mapeamento de Cultura</h4>
-                    <p className="text-sm text-muted-foreground">Análise detalhada do fit cultural necessário para sucesso na posição.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-4 h-4 text-accent" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Definição de Perfil Ideal</h4>
-                    <p className="text-sm text-muted-foreground">Construção colaborativa do perfil técnico e comportamental.</p>
-                  </div>
-                </div>
-              </div>
+            <div>
+              <h3 className="text-[32px] font-medium leading-[1.1] mb-5">
+                Acompanhamento<br />contínuo
+              </h3>
+              <p className="text-[15px] text-gray-200 leading-relaxed font-medium">
+                Nosso trabalho não termina na contratação. Mantemos rituais de
+                feedback e métricas para garantir o sucesso do profissional na nova
+                posição.
+              </p>
             </div>
           </div>
 
-          {/* Acompanhamento Contínuo */}
-          <div className="group">
-            <div className="bg-background rounded-2xl p-8 lg:p-10 border border-border/40 hover:border-accent/40 transition-all duration-300">
-              <div className="w-14 h-14 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center mb-6">
-                <RefreshCw className="w-7 h-7 text-accent" />
-              </div>
-              
-              <h3 className="text-2xl font-bold text-foreground mb-4">
-                Acompanhamento Contínuo
-              </h3>
-              
-              <p className="text-muted-foreground mb-8 leading-relaxed">
-                Nosso trabalho não termina na contratação. Mantemos rituais de feedback e métricas para garantir o sucesso do profissional na nova posição.
-              </p>
-
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-4 h-4 text-accent" />
-                  </div>
+          {/* Coluna Direita (Timeline) */}
+          <div className="w-full md:w-7/12 relative">
+            <div className="absolute left-[11px] top-2 bottom-4 w-px bg-white/30 z-0 hidden md:block" />
+            <div className="space-y-8">
+              {steps.map((step, index) => (
+                <div key={index} className="flex items-start gap-6 relative">
+                  <div className="w-6 h-6 rounded-full bg-[#e5e7eb] flex-shrink-0 mt-1 relative z-10 shadow-[0_0_10px_rgba(255,255,255,0.2)]" />
+                  {index !== steps.length - 1 && (
+                    <div className="absolute left-[11px] top-7 bottom-[-2rem] w-px bg-white/30 z-0 md:hidden" />
+                  )}
                   <div>
-                    <h4 className="font-semibold text-foreground mb-1">Rituais de Feedback</h4>
-                    <p className="text-sm text-muted-foreground">Check-ins regulares com empresa e profissional durante o período de garantia.</p>
+                    <h4 className="font-bold text-[15px] mb-1.5">{step.title}</h4>
+                    <p className="text-[14px] text-gray-200 leading-snug">{step.description}</p>
                   </div>
                 </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-4 h-4 text-accent" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Métricas de Performance</h4>
-                    <p className="text-sm text-muted-foreground">Acompanhamento de indicadores de adaptação e produtividade.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-4 h-4 text-accent" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Suporte ao Onboarding</h4>
-                    <p className="text-sm text-muted-foreground">Apoio durante a integração para maximizar as chances de sucesso.</p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
