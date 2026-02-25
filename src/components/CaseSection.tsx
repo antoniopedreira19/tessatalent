@@ -3,7 +3,7 @@ import AnimatedSection from "./AnimatedSection";
 
 const CaseSection = () => {
   return (
-    <section className="bg-white py-16 px-6 md:px-8 font-sans text-gray-900 max-w-5xl mx-auto">
+    <section id="case" className="bg-white py-16 px-6 md:px-8 font-sans text-gray-900 max-w-5xl mx-auto">
       <AnimatedSection className="mb-14">
         <h2 className="text-[40px] md:text-[48px] font-medium mb-4 tracking-tight text-black">
           Case iForense
