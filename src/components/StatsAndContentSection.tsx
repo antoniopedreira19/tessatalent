@@ -1,4 +1,5 @@
 import teamWorking from "@/assets/team-working.jpg";
+import blogTechAdvisor from "@/assets/blog-tech-advisor.png";
 
 const blogPosts = [
   {
@@ -10,7 +11,7 @@ const blogPosts = [
     title: "iForense sobre tessa talent: \u201CConsultoria foi fundamental para nosso negócio\u201D",
   },
   {
-    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80",
+    image: blogTechAdvisor,
     title: "Tech Advisor: a contratação que pode fortalece sua empresa",
   },
 ];
