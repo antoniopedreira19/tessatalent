@@ -1,10 +1,11 @@
+import AnimatedSection from "./AnimatedSection";
+import { motion } from "framer-motion";
+
 const Footer = () => {
   return (
     <footer className="bg-white pt-12 pb-8 px-6" style={{ fontFamily: "'Sansation', sans-serif" }}>
       <div className="max-w-5xl mx-auto">
-        
-        {/* Bloco de Contato */}
-        <div className="mb-12">
+        <AnimatedSection className="mb-12">
           <h2 className="text-[40px] md:text-[48px] font-medium text-black mb-6 tracking-tight leading-tight">
             Fale com a <span className="font-bold text-black">tessa</span> Talent
           </h2>
@@ -14,17 +15,17 @@ const Footer = () => {
             tecnológicos e financeiros da sua empresa.
           </p>
 
-          {/* Botão WhatsApp */}
-          <a
+          <motion.a
             href="https://wa.me/5541996855782"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-[#3b5ae5] hover:bg-blue-700 text-white font-semibold py-4 px-10 rounded-full transition-all inline-flex items-center gap-2 mb-8 shadow-sm"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
           >
             Chame no WhatsApp
-          </a>
+          </motion.a>
 
-          {/* Link LinkedIn */}
           <div>
             <a 
               href="https://linkedin.com/company/tessait" 
@@ -37,9 +38,8 @@ const Footer = () => {
               </svg>
             </a>
           </div>
-        </div>
+        </AnimatedSection>
 
-        {/* Linha de Copyright */}
         <div className="text-center pt-8 border-t border-gray-100">
           <p className="text-[13px] md:text-sm text-gray-900 font-medium">
             Tessa Talent | 2026 | Todos direitos reservados
