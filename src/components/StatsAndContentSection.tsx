@@ -41,7 +41,7 @@ const StatsAndContentSection = () => {
       </section>
 
       {/* Content/Blog */}
-      <section id="content" className="bg-[#0b1046] py-20 px-6 font-sans text-white">
+      <section id="content" className="bg-gradient-to-b from-[#1a3abf] to-[#0d1f8a] py-20 px-6 font-sans text-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-normal mb-12 tracking-tight">
             Conteúdos <span className="font-bold">tessa</span> talent
