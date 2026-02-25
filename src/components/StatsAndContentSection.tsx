@@ -10,18 +10,24 @@ const StatsAndContentSection = () => {
   return (
     <>
       {/* Stats */}
-      <section className="relative py-24 lg:py-32 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${teamWorking})` }}
-        />
-        <div className="absolute inset-0 bg-foreground/75" />
-        <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center">
-          <p className="text-7xl md:text-8xl font-extrabold text-white mb-4">82%</p>
-          <p className="text-white/90 text-lg max-w-2xl mx-auto leading-relaxed">
-            das empresas com processos estruturados de onboarding retêm seus talentos por mais tempo.
-          </p>
-          <p className="text-white/50 text-sm mt-4">Fonte: Brandon Hall Group</p>
+      <section className="relative w-full h-[500px] md:h-[600px] flex items-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src={teamWorking}
+            alt="Equipe trabalhando"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/60" />
+        </div>
+        <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-8 w-full">
+          <div className="max-w-2xl">
+            <h2 className="text-[100px] md:text-[140px] font-bold text-white leading-none mb-4 tracking-tighter">
+              82%
+            </h2>
+            <p className="text-white text-xl md:text-2xl font-medium leading-relaxed max-w-lg">
+              é o aumento em retenção das empresas que adotam processos estruturados de onboarding, segundo a <span className="font-bold text-gray-200">Brandon Hall Group</span>
+            </p>
+          </div>
         </div>
       </section>
 
