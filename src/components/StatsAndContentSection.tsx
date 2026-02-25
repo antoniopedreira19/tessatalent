@@ -4,19 +4,19 @@ import blogOnboarding from "@/assets/blog-onboarding.png";
 import blogIforense from "@/assets/blog-iforense.png";
 
 const blogPosts = [
-  {
-    image: blogOnboarding,
-    title: "\u201COnboarding especializado reduz 70% do turnover das contratações",
-  },
-  {
-    image: blogIforense,
-    title: "iForense sobre tessa talent: \u201CConsultoria foi fundamental para nosso negócio\u201D",
-  },
-  {
-    image: blogTechAdvisor,
-    title: "Tech Advisor: a contratação que pode fortalece sua empresa",
-  },
-];
+{
+  image: blogOnboarding,
+  title: "\u201COnboarding especializado reduz 70% do turnover das contratações"
+},
+{
+  image: blogIforense,
+  title: "iForense sobre tessa talent: \u201CConsultoria foi fundamental para nosso negócio\u201D"
+},
+{
+  image: blogTechAdvisor,
+  title: "Tech Advisor: a contratação que pode fortalece sua empresa"
+}];
+
 
 const StatsAndContentSection = () => {
   return (
@@ -27,8 +27,8 @@ const StatsAndContentSection = () => {
           <img
             src={teamWorking}
             alt="Equipe trabalhando"
-            className="w-full h-full object-cover"
-          />
+            className="w-full h-full object-cover" />
+
           <div className="absolute inset-0 bg-black/60" />
         </div>
         <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-8 w-full">
@@ -51,31 +51,31 @@ const StatsAndContentSection = () => {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
-            {blogPosts.map((post, idx) => (
-              <div key={idx} className="group cursor-pointer">
+            {blogPosts.map((post, idx) =>
+            <div key={idx} className="group cursor-pointer">
                 <div className="overflow-hidden rounded-[20px] mb-6 aspect-[16/10]">
                   <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+
                 </div>
                 <h3 className="text-xl md:text-[22px] font-medium leading-snug hover:text-blue-200 transition-colors">
                   {post.title}
                 </h3>
               </div>
-            ))}
+            )}
           </div>
 
           <div className="flex justify-center">
-            <button className="bg-white text-[#0b1046] hover:bg-gray-100 font-bold py-3.5 px-12 rounded-full transition-all text-base shadow-lg">
-              Acesse o blog
-            </button>
+            
+
+
           </div>
         </div>
       </section>
-    </>
-  );
+    </>);
+
 };
 
 export default StatsAndContentSection;
