@@ -6,7 +6,7 @@ const navItems = [
   { label: "Serviços", id: "services" },
   { label: "Tech Advisors", id: "tech-advisors" },
   { label: "Método", id: "methodology" },
-  { label: "Cases", id: "case" },
+  { label: "Cases", id: "case", isExternal: true, href: "https://www.iforense.com.br" },
   { label: "Conteúdos", id: "content" },
 ];
 
@@ -29,15 +29,27 @@ const Header = () => {
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="text-white/80 hover:text-white transition-colors font-medium text-sm"
-              >
-                {item.label}
-              </button>
-            ))}
+            {navItems.map((item) =>
+              item.isExternal ? (
+                <a
+                  key={item.id}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-white transition-colors font-medium text-sm"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="text-white/80 hover:text-white transition-colors font-medium text-sm"
+                >
+                  {item.label}
+                </button>
+              )
+            )}
           </nav>
 
           <button className="md:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -48,15 +60,27 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-white/20 animate-fade-in bg-foreground/80 backdrop-blur-md rounded-b-lg">
             <nav className="flex flex-col gap-4 px-2">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="text-white/80 hover:text-white transition-colors font-medium text-left py-2"
-                >
-                  {item.label}
-                </button>
-              ))}
+              {navItems.map((item) =>
+                item.isExternal ? (
+                  <a
+                    key={item.id}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white/80 hover:text-white transition-colors font-medium text-left py-2"
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className="text-white/80 hover:text-white transition-colors font-medium text-left py-2"
+                  >
+                    {item.label}
+                  </button>
+                )
+              )}
             </nav>
           </div>
         )}
