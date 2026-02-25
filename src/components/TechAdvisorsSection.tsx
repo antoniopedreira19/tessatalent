@@ -12,23 +12,23 @@ const checkItems = [
 
 const TechAdvisorsSection = () => {
   return (
-    <section id="tech-advisors" className="bg-background py-16 px-4 md:px-8 text-foreground max-w-5xl mx-auto">
+    <section id="tech-advisors" className="bg-background py-12 md:py-16 px-4 md:px-8 text-foreground max-w-5xl mx-auto">
       
       {/* --- BLOCO SUPERIOR --- */}
-      <div className="flex flex-col md:flex-row gap-10 items-center mb-24">
+      <div className="flex flex-col md:flex-row gap-8 md:gap-10 items-center mb-16 md:mb-24">
         
         <AnimatedSection className="w-full md:w-5/12" direction="left">
           <img
             src={advisorPhoto}
             alt="Tech Advisor"
-            className="w-full h-[480px] object-cover rounded-[24px]"
+            className="w-full h-[320px] md:h-[480px] object-cover rounded-[20px] md:rounded-[24px]"
             loading="lazy"
             decoding="async"
           />
         </AnimatedSection>
 
         <AnimatedSection className="w-full md:w-7/12 flex flex-col items-start" direction="right" delay={0.15}>
-          <h2 className="text-[28px] md:text-[32px] font-semibold mb-6 text-foreground tracking-tight">
+          <h2 className="text-[24px] md:text-[32px] font-semibold mb-4 md:mb-6 text-foreground tracking-tight">
             Conheça nossos Tech Advisors
           </h2>
           <p className="text-muted-foreground mb-6 leading-relaxed text-[15px]">

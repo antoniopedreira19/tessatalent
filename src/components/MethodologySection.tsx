@@ -12,10 +12,10 @@ const steps = [
 
 const MethodologySection = () => {
   return (
-    <section id="methodology" className="bg-gradient-to-b from-[hsl(231,68%,42%)] to-[hsl(231,80%,11%)] py-16 px-6 text-white min-h-screen flex items-center">
+    <section id="methodology" className="bg-gradient-to-b from-[hsl(231,68%,42%)] to-[hsl(231,80%,11%)] py-12 md:py-16 px-4 md:px-6 text-white min-h-[auto] md:min-h-screen flex items-center">
       <div className="max-w-5xl mx-auto w-full">
-        <AnimatedSection className="text-center max-w-3xl mx-auto mb-16 space-y-6">
-          <h2 className="text-3xl md:text-4xl font-normal tracking-tight">
+        <AnimatedSection className="text-center max-w-3xl mx-auto mb-10 md:mb-16 space-y-4 md:space-y-6">
+          <h2 className="text-2xl md:text-4xl font-normal tracking-tight">
             Método <span className="font-bold">tessa</span> talent
           </h2>
           <p className="text-[15px] md:text-base text-gray-100 leading-relaxed font-medium">
@@ -28,10 +28,10 @@ const MethodologySection = () => {
           </p>
         </AnimatedSection>
 
-        <div className="flex flex-col md:flex-row gap-12 md:gap-20">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-20">
           <AnimatedSection className="w-full md:w-5/12 flex flex-col justify-between py-2" direction="left">
             <div>
-              <h3 className="text-[32px] font-medium leading-[1.1] mb-5">Consultoria<br />estratégica</h3>
+              <h3 className="text-[26px] md:text-[32px] font-medium leading-[1.1] mb-4 md:mb-5">Consultoria<br />estratégica</h3>
               <p className="text-[15px] text-gray-200 leading-relaxed font-medium">
                 Antes de iniciar o processo, mergulhamos no contexto do seu negócio para entender não apenas a vaga, mas o impacto que ela terá na organização.
               </p>
@@ -44,7 +44,7 @@ const MethodologySection = () => {
               </svg>
             </div>
             <div>
-              <h3 className="text-[32px] font-medium leading-[1.1] mb-5">Acompanhamento<br />contínuo</h3>
+              <h3 className="text-[26px] md:text-[32px] font-medium leading-[1.1] mb-4 md:mb-5">Acompanhamento<br />contínuo</h3>
               <p className="text-[15px] text-gray-200 leading-relaxed font-medium">
                 Nosso trabalho não termina na contratação. Mantemos rituais de feedback e métricas para garantir o sucesso do profissional na nova posição.
               </p>
@@ -53,7 +53,7 @@ const MethodologySection = () => {
 
           <div className="w-full md:w-7/12 relative">
             <div className="absolute left-[11px] top-2 bottom-4 w-px bg-white/30 z-0 hidden md:block" />
-            <div className="space-y-8">
+            <div className="space-y-6 md:space-y-8">
               {steps.map((step, index) => (
                 <motion.div
                   key={index}

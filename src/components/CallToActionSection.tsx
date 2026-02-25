@@ -3,15 +3,15 @@ import AnimatedSection from "./AnimatedSection";
 
 const CallToActionSection = () => {
   return (
-    <section className="bg-[#f5f5f7] py-20 px-6 font-sans text-center">
+    <section className="bg-[#f5f5f7] py-14 md:py-20 px-4 md:px-6 font-sans text-center">
       <div className="max-w-5xl mx-auto">
         <AnimatedSection>
-          <h2 className="text-3xl md:text-4xl font-normal text-black mb-16 tracking-tight">
+          <h2 className="text-2xl md:text-4xl font-normal text-black mb-10 md:mb-16 tracking-tight">
             Dê uma <span className="font-bold">tessa</span> na sua empresa:
           </h2>
         </AnimatedSection>
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 mb-16">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4 mb-10 md:mb-16">
           {[
             {
               icon: (

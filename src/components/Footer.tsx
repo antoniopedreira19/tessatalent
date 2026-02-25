@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
-    <footer className="bg-white pt-12 pb-8 px-6" style={{ fontFamily: "'Sansation', sans-serif" }}>
+    <footer className="bg-white pt-10 md:pt-12 pb-8 px-4 md:px-6" style={{ fontFamily: "'Sansation', sans-serif" }}>
       <div className="max-w-5xl mx-auto">
-        <AnimatedSection className="mb-12">
-          <h2 className="text-[40px] md:text-[48px] font-medium text-black mb-6 tracking-tight leading-tight">
+        <AnimatedSection className="mb-10 md:mb-12">
+          <h2 className="text-[32px] md:text-[48px] font-medium text-black mb-4 md:mb-6 tracking-tight leading-tight">
             Fale com a <span className="font-bold text-black">tessa</span> Talent
           </h2>
           
