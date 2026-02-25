@@ -23,6 +23,7 @@ const TechAdvisorsSection = () => {
             alt="Tech Advisor"
             className="w-full h-[480px] object-cover rounded-[24px]"
             loading="lazy"
+            decoding="async"
           />
         </AnimatedSection>
 
@@ -92,6 +93,7 @@ const TechAdvisorsSection = () => {
             alt="Marcelo Pedreira"
             className="w-56 h-56 md:w-[280px] md:h-[280px] rounded-full object-cover"
             loading="lazy"
+            decoding="async"
           />
         </AnimatedSection>
       </div>
