@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+import AnimatedSection from "./AnimatedSection";
 import serviceHunting from "@/assets/service-hunting.svg";
 import serviceAlocacao from "@/assets/service-alocacao.svg";
 import serviceOndemand from "@/assets/service-ondemand.svg";
@@ -24,7 +26,7 @@ const ServicesSection = () => {
   return (
     <section id="services" className="bg-gradient-to-br from-[hsl(231,68%,40%)] to-[hsl(231,80%,16%)] py-16 px-4 md:px-8 text-white min-h-screen flex items-center">
       <div className="max-w-5xl mx-auto w-full">
-        <div className="text-center mb-12">
+        <AnimatedSection className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
             Mais cuidado. Mais performance.
           </h2>
@@ -41,25 +43,30 @@ const ServicesSection = () => {
           <h3 className="text-2xl md:text-3xl font-bold mt-10 tracking-tight">
             Tudo com 3 modelos flexíveis:
           </h3>
-        </div>
+        </AnimatedSection>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 mt-10">
-          {services.map((service) => (
-            <div
+          {services.map((service, idx) => (
+            <motion.div
               key={service.title}
               className="relative rounded-sm overflow-hidden h-[450px] shadow-[10px_10px_0px_0px_rgba(30,30,40,0.6)] flex flex-col justify-end group transition-transform hover:-translate-y-1"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6, delay: idx * 0.15, ease: [0.22, 1, 0.36, 1] }}
             >
               <img
                 src={service.image}
                 alt={service.title}
                 className="absolute inset-0 w-full h-full object-cover z-0"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10" />
               <div className="relative z-20 p-6">
                 <h4 className="text-2xl font-bold mb-3">{service.title}</h4>
                 <p className="text-sm text-gray-200 leading-snug">{service.description}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
