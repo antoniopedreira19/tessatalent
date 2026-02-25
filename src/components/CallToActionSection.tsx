@@ -1,6 +1,6 @@
 const CallToActionSection = () => {
   return (
-    <section className="bg-white py-20 px-6 font-sans text-center">
+    <section className="bg-[#f5f5f7] py-20 px-6 font-sans text-center">
       <div className="max-w-5xl mx-auto">
         
         <h2 className="text-3xl md:text-4xl font-normal text-black mb-16 tracking-tight">
