@@ -1,9 +1,18 @@
 import teamWorking from "@/assets/team-working.jpg";
 
 const blogPosts = [
-  { title: "Como estruturar um time tech do zero" },
-  { title: "Os erros mais comuns no recrutamento de devs" },
-  { title: "Por que o fit cultural importa mais do que o currículo" },
+  {
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80",
+    title: "\u201COnboarding especializado reduz 70% do turnover das contratações",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80",
+    title: "iForense sobre tessa talent: \u201CConsultoria foi fundamental para nosso negócio\u201D",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80",
+    title: "Tech Advisor: a contratação que pode fortalece sua empresa",
+  },
 ];
 
 const StatsAndContentSection = () => {
@@ -32,28 +41,31 @@ const StatsAndContentSection = () => {
       </section>
 
       {/* Content/Blog */}
-      <section id="content" className="py-20 lg:py-28 bg-blue-strong">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Conteúdos tessa talent
-            </h2>
-            <p className="text-white/70">Insights sobre recrutamento tech e gestão de talentos.</p>
-          </div>
+      <section id="content" className="bg-[#0b1046] py-20 px-6 font-sans text-white">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-normal mb-12 tracking-tight">
+            Conteúdos <span className="font-bold">tessa</span> talent
+          </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-            {blogPosts.map((post, i) => (
-              <div key={i} className="bg-white rounded-xl overflow-hidden shadow-lg">
-                <div className="h-40 bg-secondary" />
-                <div className="p-6">
-                  <h3 className="font-bold text-foreground leading-snug">{post.title}</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+            {blogPosts.map((post, idx) => (
+              <div key={idx} className="group cursor-pointer">
+                <div className="overflow-hidden rounded-[20px] mb-6 aspect-[16/10]">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
+                <h3 className="text-xl md:text-[22px] font-medium leading-snug hover:text-blue-200 transition-colors">
+                  {post.title}
+                </h3>
               </div>
             ))}
           </div>
 
-          <div className="text-center">
-            <button className="inline-flex items-center justify-center h-12 px-8 rounded-lg text-base font-semibold bg-white text-foreground hover:bg-white/90 transition-colors">
+          <div className="flex justify-center">
+            <button className="bg-white text-[#0b1046] hover:bg-gray-100 font-bold py-3.5 px-12 rounded-full transition-all text-base shadow-lg">
               Acesse o blog
             </button>
           </div>
