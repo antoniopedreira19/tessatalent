@@ -1,13 +1,15 @@
 import teamWorking from "@/assets/team-working.jpg";
 import blogTechAdvisor from "@/assets/blog-tech-advisor.png";
+import blogOnboarding from "@/assets/blog-onboarding.png";
+import blogIforense from "@/assets/blog-iforense.png";
 
 const blogPosts = [
   {
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80",
+    image: blogOnboarding,
     title: "\u201COnboarding especializado reduz 70% do turnover das contratações",
   },
   {
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80",
+    image: blogIforense,
     title: "iForense sobre tessa talent: \u201CConsultoria foi fundamental para nosso negócio\u201D",
   },
   {
