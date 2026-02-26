@@ -3,30 +3,30 @@ import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
-    <footer className="bg-white pt-10 md:pt-12 pb-8 px-4 md:px-6" style={{ fontFamily: "'Sansation', sans-serif" }}>
+    <footer className="bg-white pt-8 md:pt-10 pb-6 px-4 md:px-6" style={{ fontFamily: "'Sansation', sans-serif" }}>
       <div className="max-w-5xl mx-auto">
-        <AnimatedSection className="mb-10 md:mb-12">
-          <h2 className="text-[32px] md:text-[48px] font-medium text-black mb-4 md:mb-6 tracking-tight leading-tight">
+        <AnimatedSection className="mb-6 md:mb-8">
+          <h2 className="text-[36px] md:text-[52px] font-medium text-black mb-3 md:mb-4 tracking-tight leading-tight">
             Fale com a <span className="font-bold text-black">tessa</span> Talent
           </h2>
           
-          <p className="text-[17px] md:text-lg text-gray-800 max-w-2xl mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-800 max-w-2xl mb-6 leading-relaxed">
             Somos a parceria estratégica que dá eficiência aos recursos humanos, 
             tecnológicos e financeiros da sua empresa.
           </p>
 
-          <motion.a
-            href="https://wa.me/5541996855782"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-[#3b5ae5] hover:bg-blue-700 text-white font-semibold py-4 px-10 rounded-full transition-all inline-flex items-center gap-2 mb-8 shadow-sm"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            Chame no WhatsApp
-          </motion.a>
+          <div className="flex items-center gap-6">
+            <motion.a
+              href="https://wa.me/5541996855782"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#3b5ae5] hover:bg-blue-700 text-white font-semibold py-4 px-10 rounded-full transition-all inline-flex items-center gap-2 shadow-sm"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              Chame no WhatsApp
+            </motion.a>
 
-          <div>
             <a 
               href="https://linkedin.com/company/tessait" 
               target="_blank" 
@@ -40,8 +40,8 @@ const Footer = () => {
           </div>
         </AnimatedSection>
 
-        <div className="text-center pt-8 border-t border-gray-100">
-          <p className="text-[13px] md:text-sm text-gray-900 font-medium">
+        <div className="text-center pt-6 border-t border-gray-100">
+          <p className="text-sm text-gray-900 font-medium">
             Tessa Talent | 2026 | Todos direitos reservados
           </p>
         </div>
