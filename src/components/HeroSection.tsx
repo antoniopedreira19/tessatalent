@@ -46,8 +46,10 @@ const HeroSection = () => {
             resultados
           </motion.p>
 
-          <motion.button
-            onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
+          <motion.a
+            href="https://wa.me/5541996855782"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center h-14 px-10 rounded-full text-lg font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-opacity shadow-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -56,7 +58,7 @@ const HeroSection = () => {
             whileTap={{ scale: 0.97 }}
           >
             Conheça
-          </motion.button>
+          </motion.a>
         </div>
       </div>
     </section>
