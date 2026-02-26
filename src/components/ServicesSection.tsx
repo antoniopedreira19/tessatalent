@@ -57,11 +57,12 @@ const ServicesSection = () => {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: idx * 0.15, ease: [0.22, 1, 0.36, 1] }}
             >
-              {/* Full-bleed image */}
+              {/* Full-bleed image - scale slightly to compensate for SVG internal clip path gaps */}
               <img
                 src={service.image}
                 alt={service.title}
                 className="absolute inset-0 w-full h-full object-cover object-center z-0"
+                style={{ transform: 'scale(1.05)' }}
                 loading="lazy"
                 decoding="async"
               />
