@@ -69,11 +69,11 @@ const TechAdvisorsSection = () => {
         
         <AnimatedSection className="w-full md:w-2/3" direction="left">
           <div className="text-primary mb-6">
-            <svg width="60" height="45" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <svg width="80" height="60" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" />
             </svg>
           </div>
-          <div className="text-muted-foreground text-[15px] leading-relaxed space-y-5">
+          <div className="text-muted-foreground text-[17px] md:text-[18px] leading-relaxed space-y-5">
             <p>
               Os <strong className="text-foreground">tessa</strong> advisors entram antes da execução para avaliar cenários, mapear riscos e orientar decisões. Oferecemos mentorias para líderes e entregamos uma opinião técnica estratégica, conectando <span className="text-primary font-semibold">tecnologia à estratégia de negócio</span>.
             </p>
