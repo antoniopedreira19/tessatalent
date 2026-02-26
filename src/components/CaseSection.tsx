@@ -5,10 +5,10 @@ const CaseSection = () => {
   return (
     <section id="case" className="bg-white py-12 md:py-16 px-4 md:px-8 font-sans text-gray-900 max-w-5xl mx-auto">
       <AnimatedSection className="mb-10 md:mb-14">
-        <h2 className="text-[32px] md:text-[48px] font-medium mb-4 tracking-tight text-black">
+         <h2 className="text-[36px] md:text-[52px] font-medium mb-4 tracking-tight text-black">
           Case iForense
         </h2>
-        <p className="text-[15px] md:text-base text-gray-800 max-w-2xl leading-relaxed">
+        <p className="text-base md:text-lg text-gray-800 max-w-2xl leading-relaxed">
           Entregamos velocidade sem comprometer a qualidade técnica em uma contratação crítica
         </p>
       </AnimatedSection>
@@ -54,9 +54,11 @@ const CaseSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.15 }}
           >
-            <div className="text-[#3b5ae5] mb-5">{item.icon}</div>
-            <h3 className="font-bold text-[15px] mb-3 text-black">{item.title}</h3>
-            <p className="text-[14px] leading-relaxed text-gray-700">{item.text}</p>
+            <div className="text-[#3b5ae5] mb-5">
+              <div className="[&_svg]:w-10 [&_svg]:h-10">{item.icon}</div>
+            </div>
+            <h3 className="font-bold text-lg mb-3 text-black">{item.title}</h3>
+            <p className="text-[15px] md:text-base leading-relaxed text-gray-700">{item.text}</p>
           </motion.div>
         ))}
       </div>
