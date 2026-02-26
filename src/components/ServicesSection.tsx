@@ -51,26 +51,27 @@ const ServicesSection = () => {
           {services.map((service, idx) => (
             <motion.div
               key={service.title}
-              className="rounded-2xl overflow-hidden h-[540px] md:h-[640px] flex flex-col group transition-transform hover:-translate-y-1 bg-[hsl(231,80%,12%)]"
+              className="relative rounded-2xl overflow-hidden h-[540px] md:h-[640px] group transition-transform hover:-translate-y-1"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: idx * 0.15, ease: [0.22, 1, 0.36, 1] }}
             >
-              {/* Image area - fixed height */}
-              <div className="relative w-full h-[300px] md:h-[360px] overflow-hidden flex-shrink-0">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="absolute inset-0 w-full h-full object-cover object-center"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
+              {/* Full-bleed image */}
+              <img
+                src={service.image}
+                alt={service.title}
+                className="absolute inset-0 w-full h-full object-cover object-center z-0"
+                loading="lazy"
+                decoding="async"
+              />
 
-              {/* Text area */}
-              <div className="p-6 md:p-8 flex flex-col flex-1">
-                <h4 className="text-2xl md:text-3xl font-bold mb-3">{service.title}</h4>
+              {/* Gradient overlay - dark at bottom */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(220,20%,15%)] via-[hsl(220,20%,15%)/70%] via-40% to-transparent z-10" />
+
+              {/* Text at the bottom */}
+              <div className="absolute bottom-0 left-0 right-0 z-20 p-6 md:p-8">
+                <h4 className="text-2xl md:text-3xl font-bold mb-3 text-white">{service.title}</h4>
                 <p className="text-[15px] md:text-base text-gray-300 leading-relaxed">{service.description}</p>
               </div>
             </motion.div>
