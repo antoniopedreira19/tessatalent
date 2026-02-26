@@ -25,7 +25,7 @@ const Header = () => {
             className="cursor-pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            <img src="/images/tessa-logo-white.png" alt="Tessa" className="h-8 lg:h-10" />
+            <img src="/images/tessa-logo-white.png" alt="Tessa" className="h-10 lg:h-14" />
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -33,7 +33,7 @@ const Header = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-white/80 hover:text-white transition-colors font-medium text-sm"
+                className="text-white/90 hover:text-white transition-colors font-semibold text-base tracking-wide"
               >
                 {item.label}
               </button>
