@@ -47,12 +47,11 @@ const ServicesSection = () => {
         </AnimatedSection>
 
         {/* Adicionado items-stretch para forçar todas as colunas a terem a mesma altura */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-8 md:mt-10 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-8 md:mt-10">
           {services.map((service, idx) => (
             <motion.div
               key={service.title}
-              // Substituído o aspect-ratio por h-full e min-h-[450px] para garantir alinhamento perfeito
-              className="relative rounded-lg overflow-hidden h-full min-h-[450px] shadow-[10px_10px_0px_0px_rgba(30,30,40,0.6)] flex flex-col justify-end group transition-transform hover:-translate-y-1"
+              className="relative rounded-lg overflow-hidden h-[480px] md:h-[560px] shadow-[10px_10px_0px_0px_rgba(30,30,40,0.6)] flex flex-col justify-end group transition-transform hover:-translate-y-1"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -67,10 +66,9 @@ const ServicesSection = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10" />
 
-              {/* Adicionado flex, justify-end, h-full e mt-auto para alinhar o texto sempre na base do card */}
-              <div className="relative z-20 p-6 flex flex-col justify-end h-full mt-auto">
-                <h4 className="text-2xl font-bold mb-3">{service.title}</h4>
-                <p className="text-sm text-gray-200 leading-snug">{service.description}</p>
+              <div className="relative z-20 p-6 md:p-8">
+                <h4 className="text-2xl md:text-3xl font-bold mb-3">{service.title}</h4>
+                <p className="text-sm md:text-base text-gray-200 leading-relaxed">{service.description}</p>
               </div>
             </motion.div>
           ))}
