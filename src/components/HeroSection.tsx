@@ -25,7 +25,7 @@ const HeroSection = () => {
         <div className="max-w-2xl lg:max-w-[750px] mr-auto">
           <motion.h1
             // Adicionado drop-shadow para garantir a leitura caso a imagem redimensione
-            className="text-5xl md:text-7xl lg:text-[85px] font-extrabold text-white leading-[1.05] mb-6 md:mb-8 tracking-tight drop-shadow-lg"
+            className="text-4xl md:text-6xl lg:text-[72px] font-extrabold text-white leading-[1.05] mb-6 md:mb-8 tracking-tight drop-shadow-lg"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
