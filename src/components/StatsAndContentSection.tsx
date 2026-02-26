@@ -23,7 +23,7 @@ const StatsAndContentSection = () => {
         <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-8 w-full">
           <AnimatedSection className="max-w-2xl">
             <motion.h2
-              className="text-[72px] md:text-[140px] font-bold text-white leading-none mb-4 tracking-tighter"
+              className="text-[100px] md:text-[180px] font-extrabold text-white leading-none mb-4 tracking-tighter drop-shadow-lg"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -31,7 +31,7 @@ const StatsAndContentSection = () => {
             >
               82%
             </motion.h2>
-            <p className="text-white text-lg md:text-2xl font-medium leading-relaxed max-w-lg">
+            <p className="text-white text-xl md:text-[28px] font-medium leading-relaxed max-w-xl">
               é o aumento em retenção das empresas que adotam processos estruturados de onboarding, segundo a <span className="font-bold text-gray-200">Brandon Hall Group</span>
             </p>
           </AnimatedSection>
