@@ -63,8 +63,8 @@ const ServicesSection = () => {
                 alt={service.title}
                 className="absolute inset-0 w-full h-full object-cover object-center z-0"
                 style={{ transform: 'scale(1.05)' }}
-                loading="lazy"
-                decoding="async"
+                loading="eager"
+                fetchPriority="high"
               />
 
               {/* Dark gradient overlay at bottom for text readability */}
