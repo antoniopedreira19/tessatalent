@@ -51,7 +51,7 @@ const ServicesSection = () => {
           {services.map((service, idx) => (
             <motion.div
               key={service.title}
-              className="relative rounded-lg overflow-hidden h-[480px] md:h-[560px] shadow-[10px_10px_0px_0px_rgba(30,30,40,0.6)] flex flex-col justify-end group transition-transform hover:-translate-y-1"
+              className="relative rounded-2xl overflow-hidden h-[520px] md:h-[620px] flex flex-col justify-end group transition-transform hover:-translate-y-1"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
