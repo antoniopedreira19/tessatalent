@@ -54,13 +54,16 @@ const TechAdvisorsSection = () => {
               </motion.li>
             ))}
           </ul>
-          <motion.button
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 px-8 rounded-full transition-colors text-[15px]"
+          <motion.a
+            href="https://wa.me/5541996855782"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 px-8 rounded-full transition-colors text-[15px]"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
           >
             Saiba mais
-          </motion.button>
+          </motion.a>
         </AnimatedSection>
       </div>
 
