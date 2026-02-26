@@ -52,26 +52,33 @@ const MethodologySection = () => {
           </AnimatedSection>
 
           <div className="w-full md:w-7/12 relative">
-            <div className="absolute left-[11px] top-2 bottom-4 w-px bg-white/30 z-0 hidden md:block" />
+            <div className="absolute left-[11px] top-2 w-px bg-white/30 z-0 hidden md:block" style={{ height: 'calc(42% - 8px)' }} />
+            <div className="absolute left-[11px] bottom-4 w-px bg-white/30 z-0 hidden md:block" style={{ height: 'calc(42% - 8px)' }} />
             <div className="space-y-6 md:space-y-8">
               {steps.map((step, index) => (
-                <motion.div
-                  key={index}
-                  className="flex items-start gap-6 relative"
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <div className="w-6 h-6 rounded-full bg-[#e5e7eb] flex-shrink-0 mt-1 relative z-10 shadow-[0_0_10px_rgba(255,255,255,0.2)]" />
-                  {index !== steps.length - 1 && (
-                    <div className="absolute left-[11px] top-7 bottom-[-2rem] w-px bg-white/30 z-0 md:hidden" />
-                  )}
-                  <div>
-                    <h4 className="font-bold text-[15px] mb-1.5">{step.title}</h4>
-                    <p className="text-[14px] text-gray-200 leading-snug">{step.description}</p>
-                  </div>
-                </motion.div>
+                <div key={index}>
+                  {/* Gap between the two groups (after step 3) */}
+                  {index === 3 && <div className="h-8 md:h-12" />}
+                  <motion.div
+                    className="flex items-start gap-6 relative"
+                    initial={{ opacity: 0, x: 30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <div className="w-6 h-6 rounded-full bg-[#e5e7eb] flex-shrink-0 mt-1 relative z-10 shadow-[0_0_10px_rgba(255,255,255,0.2)]" />
+                    {index !== steps.length - 1 && index !== 2 && (
+                      <div className="absolute left-[11px] top-7 bottom-[-2rem] w-px bg-white/30 z-0 md:hidden" />
+                    )}
+                    {index === 2 && (
+                      <div className="absolute left-[11px] top-7 bottom-[-4.5rem] md:bottom-[-5.5rem] w-px bg-white/30 z-0 md:hidden" />
+                    )}
+                    <div>
+                      <h4 className="font-bold text-[15px] mb-1.5">{step.title}</h4>
+                      <p className="text-[14px] text-gray-200 leading-snug">{step.description}</p>
+                    </div>
+                  </motion.div>
+                </div>
               ))}
             </div>
           </div>
