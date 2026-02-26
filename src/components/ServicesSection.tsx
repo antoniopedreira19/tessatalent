@@ -67,12 +67,10 @@ const ServicesSection = () => {
               />
 
               {/* Gradient overlay - dark at bottom */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(220,20%,15%)] via-[hsl(220,20%,15%)/70%] via-40% to-transparent z-10" />
-
-              {/* Text at the bottom */}
-              <div className="absolute bottom-0 left-0 right-0 z-20 p-6 md:p-8">
+              {/* Text at the bottom with blurred dark background */}
+              <div className="absolute bottom-0 left-0 right-0 z-20 p-6 md:p-8 backdrop-blur-md bg-black/50">
                 <h4 className="text-2xl md:text-3xl font-bold mb-3 text-white">{service.title}</h4>
-                <p className="text-[15px] md:text-base text-gray-300 leading-relaxed">{service.description}</p>
+                <p className="text-[15px] md:text-base text-gray-200 leading-relaxed">{service.description}</p>
               </div>
             </motion.div>
           ))}
