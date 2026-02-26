@@ -3,19 +3,19 @@ import AnimatedSection from "./AnimatedSection";
 
 const services = [
   {
-    image: "/images/service-hunting.svg",
+    image: "/images/service-hunting-v2.svg",
     title: "Hunting",
     description:
       "Identificamos e atraímos talentos para posições críticas ou não. Cada processo é personalizado para encontrar o profissional ideal para a vaga e cultura da empresa.",
   },
   {
-    image: "/images/service-alocacao.svg",
+    image: "/images/service-alocacao-v2.png",
     title: "Alocação",
     description:
       "Montamos equipes inteiras prontas para operar. Desde desenvolvedores até tech leads, formamos times alinhados tecnicamente e culturalmente com seu projeto.",
   },
   {
-    image: "/images/service-ondemand.svg",
+    image: "/images/service-ondemand-v2.svg",
     title: "As a Service",
     description:
       "Profissionais sênior como CTO, DevOps ou DBA disponíveis para demandas pontuais. Expertise de alto nível sem o custo fixo de uma contratação permanente.",
