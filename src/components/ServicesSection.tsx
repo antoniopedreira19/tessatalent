@@ -66,9 +66,11 @@ const ServicesSection = () => {
                 decoding="async"
               />
 
-              {/* Gradient overlay - dark at bottom */}
-              {/* Text at the bottom with blurred dark background */}
-              <div className="absolute bottom-0 left-0 right-0 z-20 p-6 md:p-8 backdrop-blur-md bg-black/50">
+              {/* Dark gradient overlay at bottom for text readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10" />
+
+              {/* Text at the bottom */}
+              <div className="absolute bottom-0 left-0 right-0 z-20 p-6 md:p-8">
                 <h4 className="text-2xl md:text-3xl font-bold mb-3 text-white">{service.title}</h4>
                 <p className="text-[15px] md:text-base text-gray-200 leading-relaxed">{service.description}</p>
               </div>
