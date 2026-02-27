@@ -25,7 +25,7 @@ const Header = () => {
             className="cursor-pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            <img src="/images/tessa-logo-white.png" alt="Tessa" className="h-10 lg:h-14" />
+            <img src="/images/tessa-logo-white.png" alt="Tessa" className="h-12 lg:h-14" />
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -40,8 +40,8 @@ const Header = () => {
             ))}
           </nav>
 
-          <button className="md:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
+          <button className="md:hidden p-2 rounded-md bg-primary/90" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <X className="w-7 h-7 text-white" /> : <Menu className="w-7 h-7 text-white" />}
           </button>
         </div>
 

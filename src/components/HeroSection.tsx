@@ -20,7 +20,7 @@ const HeroSection = () => {
           deixando a direita (rosto) livre de filtro */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-20 pb-12 md:pt-24 md:pb-16">
+      <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-32 pb-12 md:pt-24 md:pb-16">
         {/* Limitamos a largura e forçamos o alinhamento total à esquerda com mr-auto */}
         <div className="max-w-2xl lg:max-w-[750px] mr-auto">
           <motion.h1
