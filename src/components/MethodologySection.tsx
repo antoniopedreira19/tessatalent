@@ -66,8 +66,10 @@ const MethodologySection = () => {
             </div>
 
             {/* Transition icon */}
-            <div className="flex justify-center md:justify-start md:pl-12 my-6 md:my-8">
-              <RefreshCw className="w-10 h-10 text-white/40" strokeWidth={1.5} />
+            <div className="flex justify-center md:justify-start md:pl-12 my-8 md:my-10">
+              <div className="w-16 h-16 rounded-full border-2 border-white/30 flex items-center justify-center bg-white/10 backdrop-blur-sm">
+                <RefreshCw className="w-8 h-8 text-white/70" strokeWidth={1.5} />
+              </div>
             </div>
 
             {/* Acompanhamento */}
