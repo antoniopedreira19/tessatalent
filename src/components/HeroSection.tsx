@@ -3,29 +3,25 @@ import { motion } from "framer-motion";
 const HeroSection = () => {
   return (
     <section
-      className="relative min-h-[500px] md:min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden"
+      className="relative min-h-[100svh] md:min-h-[600px] lg:min-h-[700px] flex items-end md:items-center overflow-hidden"
       style={{ fontFamily: "'Sansation', sans-serif" }}
     >
       <img
         src="/images/hero-woman.jpg"
         alt="Profissional sorrindo"
-        // Move o foco da imagem para a direita, protegendo o rosto de cortes
-        className="absolute inset-0 w-full h-full object-cover object-[75%_top] sm:object-right"
+        className="absolute inset-0 w-full h-full object-cover object-[70%_20%] md:object-[75%_top] lg:object-right"
         loading="eager"
         fetchPriority="high"
         decoding="async"
       />
 
-      {/* O SEGREDO: Gradiente que escurece apenas a esquerda para a leitura, 
-          deixando a direita (rosto) livre de filtro */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+      {/* Mobile: gradient from bottom to let face show at top. Desktop: gradient from left */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent md:bg-gradient-to-r md:from-black/80 md:via-black/40 md:to-transparent" />
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-32 pb-12 md:pt-24 md:pb-16">
-        {/* Limitamos a largura e forçamos o alinhamento total à esquerda com mr-auto */}
+      <div className="container mx-auto px-4 lg:px-8 relative z-10 pb-10 pt-[55vh] md:pt-24 md:pb-16">
         <div className="max-w-2xl lg:max-w-[750px] mr-auto">
           <motion.h1
-            // Adicionado drop-shadow para garantir a leitura caso a imagem redimensione
-className="text-4xl md:text-[50px] lg:text-[63px] font-bold text-white leading-[1.05] mb-6 md:mb-8 tracking-tight drop-shadow-lg"
+            className="text-[36px] md:text-[50px] lg:text-[63px] font-bold text-white leading-[1.05] mb-5 md:mb-8 tracking-tight drop-shadow-lg"
             style={{ fontFamily: "'Sansation', sans-serif" }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -37,8 +33,7 @@ className="text-4xl md:text-[50px] lg:text-[63px] font-bold text-white leading-[
           </motion.h1>
 
           <motion.p
-            // A largura deste texto de apoio foi travada em 600px para não invadir a direita
-            className="text-xl md:text-2xl lg:text-[28px] text-white/95 mb-10 max-w-[600px] leading-relaxed drop-shadow-md"
+            className="text-lg md:text-2xl lg:text-[28px] text-white/90 mb-8 md:mb-10 max-w-[600px] leading-relaxed drop-shadow-md"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
