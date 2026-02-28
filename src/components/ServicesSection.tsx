@@ -1,28 +1,28 @@
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
-
-const services = [
-  {
-    image: "/images/service-hunting-v2.svg",
-    title: "Hunting",
-    description:
-      "Identificamos e atraímos talentos para posições críticas ou não. Cada processo é personalizado para encontrar o profissional ideal para a vaga e cultura da empresa.",
-  },
-  {
-    image: "/images/service-alocacao-v2.png",
-    title: "Alocação",
-    description:
-      "Montamos equipes inteiras prontas para operar. Desde desenvolvedores até tech leads, formamos times alinhados tecnicamente e culturalmente com seu projeto.",
-  },
-  {
-    image: "/images/service-ondemand-v2.svg",
-    title: "As a Service",
-    description:
-      "Profissionais sênior como CTO, DevOps ou DBA disponíveis para demandas pontuais. Expertise de alto nível sem o custo fixo de uma contratação permanente.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ServicesSection = () => {
+  const { t } = useLanguage();
+
+  const services = [
+    {
+      image: "/images/service-hunting-v2.svg",
+      title: t("services.hunting.title"),
+      description: t("services.hunting.desc"),
+    },
+    {
+      image: "/images/service-alocacao-v2.png",
+      title: t("services.alocacao.title"),
+      description: t("services.alocacao.desc"),
+    },
+    {
+      image: "/images/service-ondemand-v2.svg",
+      title: t("services.asaservice.title"),
+      description: t("services.asaservice.desc"),
+    },
+  ];
+
   return (
     <section
       id="services"
@@ -31,22 +31,15 @@ const ServicesSection = () => {
       <div className="max-w-5xl mx-auto w-full">
         <AnimatedSection className="text-center mb-8 md:mb-12">
           <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6 tracking-tight">
-            Mais cuidado. Mais performance.
+            {t("services.heading")}
           </h2>
           <div className="space-y-4 max-w-3xl mx-auto text-[15px] md:text-base text-blue-50 font-medium">
-            <p>
-              Somos vibrados em formar times de tecnologia que crescem de forma sustentável e com humanidade orientada a
-              resultado.
-            </p>
-            <p>
-              Reduzimos turnover, desalinhamentos e desperdício financeiro com acompanhamento antes, durante e depois da
-              contratação.
-            </p>
+            <p>{t("services.p1")}</p>
+            <p>{t("services.p2")}</p>
           </div>
-          <h3 className="text-xl md:text-3xl font-bold mt-8 md:mt-10 tracking-tight">Tudo com 3 modelos flexíveis:</h3>
+          <h3 className="text-xl md:text-3xl font-bold mt-8 md:mt-10 tracking-tight">{t("services.subheading")}</h3>
         </AnimatedSection>
 
-        {/* Adicionado items-stretch para forçar todas as colunas a terem a mesma altura */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-8 md:mt-10">
           {services.map((service, idx) => (
             <motion.div
@@ -57,7 +50,6 @@ const ServicesSection = () => {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: idx * 0.15, ease: [0.22, 1, 0.36, 1] }}
             >
-              {/* Full-bleed image - scale slightly to compensate for SVG internal clip path gaps */}
               <img
                 src={service.image}
                 alt={service.title}
@@ -66,11 +58,7 @@ const ServicesSection = () => {
                 loading="eager"
                 fetchPriority="high"
               />
-
-              {/* Dark gradient overlay at bottom for text readability */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10" />
-
-              {/* Text at the bottom */}
               <div className="absolute bottom-0 left-0 right-0 z-20 p-6 md:p-8">
                 <h4 className="text-2xl md:text-3xl font-bold mb-3 text-white">{service.title}</h4>
                 <p className="text-[15px] md:text-base text-gray-200 leading-relaxed">{service.description}</p>

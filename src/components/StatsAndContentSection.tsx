@@ -4,14 +4,17 @@ import teamWorking from "@/assets/team-working.jpg";
 import blogTechAdvisor from "@/assets/blog-tech-advisor.png";
 import blogOnboarding from "@/assets/blog-onboarding.png";
 import blogIforense from "@/assets/blog-iforense.png";
-
-const blogPosts = [
-  { image: blogOnboarding, title: "\u201COnboarding especializado reduz 70% do turnover das contratações" },
-  { image: blogIforense, title: "iForense sobre tessa talent: \u201CConsultoria foi fundamental para nosso negócio\u201D" },
-  { image: blogTechAdvisor, title: "Tech Advisor: a contratação que pode fortalece sua empresa" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const StatsAndContentSection = () => {
+  const { t } = useLanguage();
+
+  const blogPosts = [
+    { image: blogOnboarding, title: t("content.blog1") },
+    { image: blogIforense, title: t("content.blog2") },
+    { image: blogTechAdvisor, title: t("content.blog3") },
+  ];
+
   return (
     <>
       {/* Stats */}
@@ -29,11 +32,9 @@ const StatsAndContentSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
-              82%
+              {t("stats.value")}
             </motion.h2>
-            <p className="text-white text-xl md:text-[28px] font-medium leading-relaxed max-w-xl">
-              é o aumento em retenção das empresas que adotam processos estruturados de onboarding, segundo a <span className="font-bold text-gray-200">Brandon Hall Group</span>
-            </p>
+            <p className="text-white text-xl md:text-[28px] font-medium leading-relaxed max-w-xl" dangerouslySetInnerHTML={{ __html: t("stats.text").replace(/<bold>/g, '<span class="font-bold text-gray-200">').replace(/<\/bold>/g, '</span>') }} />
           </AnimatedSection>
         </div>
       </section>
@@ -42,9 +43,7 @@ const StatsAndContentSection = () => {
       <section id="content" className="bg-gradient-to-b from-[#1a3abf] to-[#0d1f8a] py-14 md:py-20 px-4 md:px-6 font-sans text-white">
         <div className="max-w-6xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-2xl md:text-4xl font-normal mb-8 md:mb-12 tracking-tight">
-              Conteúdos <span className="font-bold">tessa</span> talent
-            </h2>
+            <h2 className="text-2xl md:text-4xl font-normal mb-8 md:mb-12 tracking-tight" dangerouslySetInnerHTML={{ __html: t("content.heading").replace(/<bold>/g, '<span class="font-bold">').replace(/<\/bold>/g, '</span>') }} />
           </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mb-12 md:mb-16">

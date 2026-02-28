@@ -2,15 +2,18 @@ import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import advisorPhoto from "@/assets/advisor-photo.png";
 import ceoMarcelo from "@/assets/ceo-marcelo.png";
-
-const checkItems = [
-  "Histórico real como CTOs e CIOs",
-  "Experiência prática em crescimento, crise, correção de rota e escala",
-  "Visão de tecnologia aplicada a negócio",
-  "Atuação independente, sem conflito de interesse",
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const TechAdvisorsSection = () => {
+  const { t } = useLanguage();
+
+  const checkItems = [
+    t("ta.check1"),
+    t("ta.check2"),
+    t("ta.check3"),
+    t("ta.check4"),
+  ];
+
   return (
     <section id="tech-advisors" className="bg-background py-12 md:py-16 px-4 md:px-8 text-foreground max-w-5xl mx-auto">
       
@@ -29,13 +32,10 @@ const TechAdvisorsSection = () => {
 
         <AnimatedSection className="w-full md:w-7/12 flex flex-col items-start" direction="right" delay={0.15}>
           <h2 className="text-[24px] md:text-[32px] font-semibold mb-4 md:mb-6 text-foreground tracking-tight">
-            Conheça nossos Tech Advisors
+            {t("ta.heading")}
           </h2>
-          <p className="text-muted-foreground mb-6 leading-relaxed text-[15px]">
-            A <strong className="text-foreground">tessa</strong> possui uma rede de Advisors que tomam decisões em momentos críticos e de escala, com impacto direto em pessoas e nas dinâmicas de empresas como{" "}
-            <strong className="text-foreground">Creditas, iFood, EBX, Dafiti e Olist.</strong>
-          </p>
-          <p className="text-muted-foreground mb-4 text-[15px]">São advisors com:</p>
+          <p className="text-muted-foreground mb-6 leading-relaxed text-[15px]" dangerouslySetInnerHTML={{ __html: t("ta.p1").replace(/<strong>/g, '<strong class="text-foreground">') }} />
+          <p className="text-muted-foreground mb-4 text-[15px]">{t("ta.p2")}</p>
           <ul className="space-y-3 mb-8">
             {checkItems.map((item, idx) => (
               <motion.li
@@ -62,7 +62,7 @@ const TechAdvisorsSection = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
           >
-            Saiba mais
+            {t("ta.cta")}
           </motion.a>
         </AnimatedSection>
       </div>
@@ -77,16 +77,12 @@ const TechAdvisorsSection = () => {
             </svg>
           </div>
           <div className="text-muted-foreground text-[17px] md:text-[18px] leading-relaxed space-y-5">
-            <p>
-              Os <strong className="text-foreground">tessa</strong> advisors entram antes da execução para avaliar cenários, mapear riscos e orientar decisões. Oferecemos mentorias para líderes e entregamos uma opinião técnica estratégica, conectando <span className="text-primary font-semibold">tecnologia à estratégia de negócio</span>.
-            </p>
-            <p>
-              Nossos advisors vão ajudar sua empresa com arquitetura, estrutura de time, liderança técnica, organização das prioridades e investimentos, traduzindo com clareza os problemas estruturais e ruídos operacionais para CEOs, CFOs e conselheiros."
-            </p>
+            <p dangerouslySetInnerHTML={{ __html: t("ta.quote1").replace(/<strong>/g, '<strong class="text-foreground">').replace(/<span>/g, '<span class="text-primary font-semibold">') }} />
+            <p>{t("ta.quote2")}</p>
           </div>
           <div className="mt-8">
-            <p className="font-bold text-foreground text-[15px]">Marcelo Pedreira</p>
-            <p className="text-muted-foreground text-[14px]">CEO da Tessa Talent</p>
+            <p className="font-bold text-foreground text-[15px]">{t("ta.ceoName")}</p>
+            <p className="text-muted-foreground text-[14px]">{t("ta.ceoTitle")}</p>
           </div>
         </AnimatedSection>
 

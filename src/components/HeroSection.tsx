@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HeroSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section
       className="relative min-h-[100svh] md:min-h-[600px] lg:min-h-[700px] flex items-end md:items-center overflow-hidden"
@@ -8,14 +11,13 @@ const HeroSection = () => {
     >
       <img
         src="/images/hero-woman.jpg"
-        alt="Profissional sorrindo"
+        alt={t("hero.imgAlt")}
         className="absolute inset-0 w-full h-full object-cover object-[70%_20%] md:object-[75%_top] lg:object-right"
         loading="eager"
         fetchPriority="high"
         decoding="async"
       />
 
-      {/* Mobile: gradient from bottom to let face show at top. Desktop: gradient from left */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent md:bg-gradient-to-r md:from-black/80 md:via-black/40 md:to-transparent" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10 pb-10 pt-[55vh] md:pt-24 md:pb-16">
@@ -27,9 +29,9 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            Pessoas certas
+            {t("hero.title1")}
             <br />
-            no contexto certo
+            {t("hero.title2")}
           </motion.h1>
 
           <motion.p
@@ -38,8 +40,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            Somos uma Tech Talent que conecta os melhores talentos de tecnologia com seu negócio para fortalecer
-            resultados
+            {t("hero.subtitle")}
           </motion.p>
 
           <motion.button
@@ -51,7 +52,7 @@ const HeroSection = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
           >
-            Conheça
+            {t("hero.cta")}
           </motion.button>
         </div>
       </div>

@@ -1,12 +1,26 @@
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import type { Language } from "@/lib/translations";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
-const navItems = [
-  { label: "Serviços", id: "services" },
-  { label: "Tech Advisors", id: "tech-advisors" },
-  { label: "Método", id: "methodology" },
-  { label: "Cases", id: "case" },
-  { label: "Conteúdos", id: "content" },
+const navKeys = [
+  { key: "nav.services", id: "services" },
+  { key: "nav.techAdvisors", id: "tech-advisors" },
+  { key: "nav.method", id: "methodology" },
+  { key: "nav.cases", id: "case" },
+  { key: "nav.content", id: "content" },
+];
+
+const languages: { code: Language; label: string }[] = [
+  { code: "pt-BR", label: "PT" },
+  { code: "en", label: "EN" },
+  { code: "es", label: "ES" },
 ];
 
 const Header = () => {
@@ -15,6 +29,7 @@ const Header = () => {
   const [isAtTop, setIsAtTop] = useState(true);
   const lastScrollY = useRef(0);
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,17 +38,13 @@ const Header = () => {
       setIsAtTop(atTop);
 
       if (atTop) {
-        // Always visible at top of page
         setVisible(true);
         if (hideTimer.current) clearTimeout(hideTimer.current);
       } else if (currentY < lastScrollY.current) {
-        // Scrolling up → show header
         setVisible(true);
-        // Reset hide timer
         if (hideTimer.current) clearTimeout(hideTimer.current);
         hideTimer.current = setTimeout(() => setVisible(false), 1500);
       } else {
-        // Scrolling down → hide
         setVisible(false);
         if (hideTimer.current) clearTimeout(hideTimer.current);
       }
@@ -53,6 +64,8 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+  const currentLangLabel = languages.find((l) => l.code === language)?.label ?? "PT";
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -69,15 +82,34 @@ const Header = () => {
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
+            {navKeys.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className="text-white/90 hover:text-white transition-colors font-semibold text-base tracking-wide"
               >
-                {item.label}
+                {t(item.key)}
               </button>
             ))}
+
+            {/* Language Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 text-white/90 hover:text-white transition-colors font-semibold text-sm tracking-wide outline-none">
+                {currentLangLabel}
+                <ChevronDown className="w-4 h-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="min-w-[80px]">
+                {languages.map((lang) => (
+                  <DropdownMenuItem
+                    key={lang.code}
+                    onClick={() => setLanguage(lang.code)}
+                    className={lang.code === language ? "font-bold" : ""}
+                  >
+                    {lang.label}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
 
           <button className="md:hidden p-2 rounded-md bg-primary/90" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -88,15 +120,34 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-white/20 animate-fade-in bg-foreground/80 backdrop-blur-md rounded-b-lg">
             <nav className="flex flex-col gap-4 px-2">
-              {navItems.map((item) => (
+              {navKeys.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className="text-white/80 hover:text-white transition-colors font-medium text-left py-2"
                 >
-                  {item.label}
+                  {t(item.key)}
                 </button>
               ))}
+              {/* Mobile language selector */}
+              <div className="flex gap-3 pt-2 border-t border-white/20">
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => {
+                      setLanguage(lang.code);
+                      setIsMenuOpen(false);
+                    }}
+                    className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-colors ${
+                      lang.code === language
+                        ? "bg-primary text-primary-foreground"
+                        : "text-white/70 hover:text-white"
+                    }`}
+                  >
+                    {lang.label}
+                  </button>
+                ))}
+              </div>
             </nav>
           </div>
         )}
