@@ -1,18 +1,18 @@
 import AnimatedSection from "./AnimatedSection";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-white pt-8 md:pt-10 pb-6 px-4 md:px-6" style={{ fontFamily: "'Sansation', sans-serif" }}>
       <div className="max-w-5xl mx-auto">
         <AnimatedSection className="mb-6 md:mb-8">
-          <h2 className="text-[36px] md:text-[52px] font-medium text-black mb-3 md:mb-4 tracking-tight leading-tight">
-            Fale com a <span className="font-bold text-black">tessa</span> Talent
-          </h2>
+          <h2 className="text-[36px] md:text-[52px] font-medium text-black mb-3 md:mb-4 tracking-tight leading-tight" dangerouslySetInnerHTML={{ __html: t("footer.heading").replace(/<bold>/g, '<span class="font-bold">').replace(/<\/bold>/g, '</span>') }} />
           
           <p className="text-lg md:text-xl text-gray-800 max-w-2xl mb-6 leading-relaxed">
-            Somos a parceria estratégica que dá eficiência aos recursos humanos, 
-            tecnológicos e financeiros da sua empresa.
+            {t("footer.subtitle")}
           </p>
 
           <div className="flex items-center gap-6">
@@ -24,7 +24,7 @@ const Footer = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
             >
-              Chame no WhatsApp
+              {t("footer.whatsapp")}
             </motion.a>
 
             <a 
@@ -42,7 +42,7 @@ const Footer = () => {
 
         <div className="text-center pt-6 border-t border-gray-100">
           <p className="text-sm text-gray-900 font-medium">
-            Tessa Talent | 2026 | Todos direitos reservados
+            {t("footer.rights")}
           </p>
         </div>
       </div>
