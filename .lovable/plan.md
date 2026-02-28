@@ -1,22 +1,26 @@
 
 
-## Problema
+## Plano: Favicon definitivo com URL Supabase (96x96)
 
-O `index.html` não tem nenhuma tag `<link rel="icon">` — só tem `apple-touch-icon`. Por isso o Google e os navegadores usam o favicon padrão do Lovable (`/favicon.ico`).
+### 1. Atualizar `index.html`
 
-## Plano
-
-Adicionar tags de favicon explícitas no `<head>` do `index.html` apontando para a URL do Supabase que você forneceu:
+Substituir as tags de favicon atuais (linhas 10-12) por:
 
 ```html
-<link rel="icon" type="image/png" sizes="32x32" href="https://jshkvchtckivjhiuayih.supabase.co/storage/v1/object/public/images/Favicon%20TESSA%20V3%20(1)%20(1).png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://jshkvchtckivjhiuayih.supabase.co/storage/v1/object/public/images/Favicon%20TESSA%20V3%20(1)%20(1).png">
-<link rel="shortcut icon" href="https://jshkvchtckivjhiuayih.supabase.co/storage/v1/object/public/images/Favicon%20TESSA%20V3%20(1)%20(1).png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="96x96" href="https://jshkvchtckivjhiuayih.supabase.co/storage/v1/object/public/images/Favicon%20TESSA%20V3%20(2)%20(2).png">
+<link rel="shortcut icon" href="https://jshkvchtckivjhiuayih.supabase.co/storage/v1/object/public/images/Favicon%20TESSA%20V3%20(2)%20(2).png">
 ```
 
-Também atualizar o `apple-touch-icon` existente (linha 21) para usar a mesma URL.
+Atualizar `apple-touch-icon` (linha 23) para a mesma URL nova `(2) (2)`.
 
-Remover as linhas vazias desnecessárias (28-47) para limpar o HTML.
+### 2. Arquivos locais
 
-**Nota importante:** O Google pode levar dias ou semanas para atualizar o favicon nos resultados de busca — isso depende do cache do Google, não do código.
+- `public/favicon.png` — **mantido** (não será excluído)
+- `public/favicon.jpeg` — pode ser removido se você quiser (não é referenciado em nenhum lugar)
+- `public/favicon.ico` — idealmente deveria conter o logo da TESSA, mas não será alterado agora
+
+### Pós-deploy
+
+Google Search Console → colar URL → "Solicitar Indexação".
 
