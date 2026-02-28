@@ -1,42 +1,22 @@
 
 
-## Plan: Add Multi-language Support (PT-BR, ENG, ESP)
+## Problema
 
-### Approach
-Use React Context for language state management and a translations file for all text content. Add a language dropdown in the Header.
+O `index.html` não tem nenhuma tag `<link rel="icon">` — só tem `apple-touch-icon`. Por isso o Google e os navegadores usam o favicon padrão do Lovable (`/favicon.ico`).
 
-### Steps
+## Plano
 
-1. **Create translations file** (`src/lib/translations.ts`)
-   - Define all text strings for every section (Hero, Services, Methodology, Cases, CTA, Footer, etc.) in three languages: `pt-BR`, `en`, `es`
+Adicionar tags de favicon explícitas no `<head>` do `index.html` apontando para a URL do Supabase que você forneceu:
 
-2. **Create Language Context** (`src/contexts/LanguageContext.tsx`)
-   - React Context with `language` state and `setLanguage` setter
-   - `useLanguage()` hook that returns current language and a `t()` function for translations
-   - Persist selected language in `localStorage`
+```html
+<link rel="icon" type="image/png" sizes="32x32" href="https://jshkvchtckivjhiuayih.supabase.co/storage/v1/object/public/images/Favicon%20TESSA%20V3%20(1)%20(1).png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://jshkvchtckivjhiuayih.supabase.co/storage/v1/object/public/images/Favicon%20TESSA%20V3%20(1)%20(1).png">
+<link rel="shortcut icon" href="https://jshkvchtckivjhiuayih.supabase.co/storage/v1/object/public/images/Favicon%20TESSA%20V3%20(1)%20(1).png">
+```
 
-3. **Add Language Dropdown to Header** (`src/components/Header.tsx`)
-   - Small dropdown button showing current language flag/code (e.g., "PT" / "EN" / "ES")
-   - Positioned next to the nav items on desktop, and inside the mobile menu
-   - Styled to match the header aesthetic (white text, minimal)
+Também atualizar o `apple-touch-icon` existente (linha 21) para usar a mesma URL.
 
-4. **Wrap App with LanguageProvider** (`src/App.tsx`)
-   - Wrap the app tree with the `LanguageProvider`
+Remover as linhas vazias desnecessárias (28-47) para limpar o HTML.
 
-5. **Update all content components** to use `t()` instead of hardcoded strings:
-   - `HeroSection.tsx`
-   - `ServicesSection.tsx`
-   - `TechAdvisorsSection.tsx`
-   - `MethodologySection.tsx`
-   - `CaseSection.tsx`
-   - `StatsAndContentSection.tsx`
-   - `CallToActionSection.tsx`
-   - `Footer.tsx`
-
-### Technical Details
-
-- No external i18n library needed — a simple context + object lookup is sufficient for a single-page site
-- Translation keys organized by section for maintainability
-- Language selector uses a simple dropdown menu (Radix `DropdownMenu` already available)
-- Default language: `pt-BR`
+**Nota importante:** O Google pode levar dias ou semanas para atualizar o favicon nos resultados de busca — isso depende do cache do Google, não do código.
 
