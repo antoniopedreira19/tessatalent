@@ -36,7 +36,7 @@ const Index = () => {
         <MethodologySection />
         <CaseSection />
         <CallToActionSection />
-        <StatsAndContentSection />
+        {/* <StatsAndContentSection /> */}
       </main>
       <Footer />
       <WhatsAppButton />
