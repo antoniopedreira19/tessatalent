@@ -81,12 +81,12 @@ const Header = () => {
             <img src="/images/tessa-logo-white.png" alt="Tessa" className="h-12 lg:h-14 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]" />
           </div>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-10 lg:gap-14">
             {navKeys.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-white/90 hover:text-white transition-colors font-semibold text-base tracking-wide"
+                className="text-white/90 hover:text-white transition-colors font-semibold text-[13px] lg:text-sm tracking-[0.08em] uppercase"
               >
                 {t(item.key)}
               </button>
