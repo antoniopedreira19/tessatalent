@@ -1,26 +1,37 @@
 
 
-## Plano: Favicon definitivo com URL Supabase (96x96)
+## Diagnóstico
 
-### 1. Atualizar `index.html`
+Analisando os screenshots do dispositivo real vs o preview, identifiquei o problema principal:
 
-Substituir as tags de favicon atuais (linhas 10-12) por:
+**Overflow horizontal** -- Elementos com animações framer-motion (como `AnimatedSection` com `x: -40` ou `x: 40`) criam conteúdo fora da viewport antes de animar. Como não há `overflow-x: hidden` no `body` ou no `#root`, isso gera uma barra de rolagem horizontal invisível. No celular real, o usuário pode arrastar o conteúdo para o lado, causando o efeito de "layout espremido" que você vê.
 
-```html
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="96x96" href="https://jshkvchtckivjhiuayih.supabase.co/storage/v1/object/public/images/Favicon%20TESSA%20V3%20(2)%20(2).png">
-<link rel="shortcut icon" href="https://jshkvchtckivjhiuayih.supabase.co/storage/v1/object/public/images/Favicon%20TESSA%20V3%20(2)%20(2).png">
+Isso explica o comportamento "fica um tempo com um layout e depois muda": a animação começa com elementos deslocados lateralmente, expandindo a largura da página, e depois eles se movem para a posição correta.
+
+## Plano de correção
+
+### 1. Adicionar `overflow-x: hidden` no CSS global (`src/index.css`)
+
+Adicionar no bloco `body`:
+```css
+overflow-x: hidden;
 ```
 
-Atualizar `apple-touch-icon` (linha 23) para a mesma URL nova `(2) (2)`.
+Isso impede qualquer rolagem horizontal causada por animações ou elementos fora da viewport.
 
-### 2. Arquivos locais
+### 2. Remover `App.css` (arquivo legado do Vite)
 
-- `public/favicon.png` — **mantido** (não será excluído)
-- `public/favicon.jpeg` — pode ser removido se você quiser (não é referenciado em nenhum lugar)
-- `public/favicon.ico` — idealmente deveria conter o logo da TESSA, mas não será alterado agora
+O arquivo `src/App.css` contém estilos do template padrão do Vite (`#root { max-width: 1280px; padding: 2rem }`) que não são usados mas podem causar conflitos se acidentalmente importados. Será deletado.
 
-### Pós-deploy
+### 3. Ajustes finos de padding/espaçamento mobile nas seções
 
-Google Search Console → colar URL → "Solicitar Indexação".
+Revisar cada seção para garantir que o padding lateral seja consistente (`px-4` ou `px-5`) e que nenhum elemento extrapole a largura da tela em dispositivos pequenos (320px-375px):
+
+- **HeroSection**: OK, já tem `px-4`
+- **ServicesSection**: OK, já tem `px-4`
+- **TechAdvisorsSection**: `max-w-5xl mx-auto` sem padding externo no mobile -- adicionar `px-4` ao section
+- **CaseSection**: Mesmo problema -- adicionar `px-4` consistente
+- **CallToActionSection**: OK
+- **StatsAndContentSection**: Seção de stats sem padding lateral no mobile -- garantir `px-4`
+- **Footer**: OK
 
