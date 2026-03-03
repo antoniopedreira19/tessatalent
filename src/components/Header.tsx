@@ -139,12 +139,13 @@ const Header = () => {
                       setLanguage(lang.code);
                       setIsMenuOpen(false);
                     }}
-                    className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-colors ${
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-semibold transition-colors ${
                       lang.code === language
                         ? "bg-primary text-primary-foreground"
                         : "text-white/70 hover:text-white"
                     }`}
                   >
+                    <span className="text-base leading-none">{lang.flag}</span>
                     {lang.label}
                   </button>
                 ))}
