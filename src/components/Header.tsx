@@ -16,10 +16,45 @@ const navKeys = [
   { key: "nav.cases", id: "case" },
 ];
 
-const languages: { code: Language; label: string; flag: string }[] = [
-  { code: "pt-BR", label: "PT", flag: "🇧🇷" },
-  { code: "en", label: "EN", flag: "🇺🇸" },
-  { code: "es", label: "ES", flag: "🇪🇸" },
+const FlagBR = ({ className = "w-5 h-4" }: { className?: string }) => (
+  <svg viewBox="0 0 640 480" className={className}>
+    <rect width="640" height="480" fill="#009b3a" />
+    <polygon points="320,39 609,240 320,441 31,240" fill="#fedf00" />
+    <circle cx="320" cy="240" r="95" fill="#002776" />
+    <path d="M195,240 Q320,170 445,240 Q320,200 195,240Z" fill="#fff" />
+  </svg>
+);
+
+const FlagUS = ({ className = "w-5 h-4" }: { className?: string }) => (
+  <svg viewBox="0 0 640 480" className={className}>
+    <rect width="640" height="480" fill="#bd3d44" />
+    <rect y="37" width="640" height="37" fill="#fff" />
+    <rect y="111" width="640" height="37" fill="#fff" />
+    <rect y="185" width="640" height="37" fill="#fff" />
+    <rect y="259" width="640" height="37" fill="#fff" />
+    <rect y="333" width="640" height="37" fill="#fff" />
+    <rect y="407" width="640" height="37" fill="#fff" />
+    <rect width="260" height="259" fill="#192f5d" />
+  </svg>
+);
+
+const FlagES = ({ className = "w-5 h-4" }: { className?: string }) => (
+  <svg viewBox="0 0 640 480" className={className}>
+    <rect width="640" height="480" fill="#c60b1e" />
+    <rect y="120" width="640" height="240" fill="#ffc400" />
+  </svg>
+);
+
+const flagComponents: Record<Language, React.FC<{ className?: string }>> = {
+  "pt-BR": FlagBR,
+  en: FlagUS,
+  es: FlagES,
+};
+
+const languages: { code: Language; label: string }[] = [
+  { code: "pt-BR", label: "PT" },
+  { code: "en", label: "EN" },
+  { code: "es", label: "ES" },
 ];
 
 const Header = () => {
@@ -63,7 +98,8 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
-  const currentLangLabel = languages.find((l) => l.code === language)?.label ?? "PT";
+  const currentLang = languages.find((l) => l.code === language);
+  const CurrentFlag = flagComponents[language];
 
   return (
     <header
@@ -93,22 +129,25 @@ const Header = () => {
 
             {/* Language Dropdown */}
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center gap-1.5 text-white/90 hover:text-white transition-colors font-semibold text-sm tracking-wide outline-none drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">
-                <span className="text-base leading-none">{languages.find((l) => l.code === language)?.flag}</span>
-                {currentLangLabel}
+              <DropdownMenuTrigger className="flex items-center gap-2 text-white/90 hover:text-white transition-colors font-semibold text-sm tracking-wide outline-none drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">
+                <CurrentFlag className="w-5 h-3.5 rounded-[2px] overflow-hidden shadow-sm" />
+                {currentLang?.label}
                 <ChevronDown className="w-4 h-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="min-w-[100px]">
-                {languages.map((lang) => (
-                  <DropdownMenuItem
-                    key={lang.code}
-                    onClick={() => setLanguage(lang.code)}
-                    className={`gap-2 ${lang.code === language ? "font-bold" : ""}`}
-                  >
-                    <span className="text-base leading-none">{lang.flag}</span>
-                    {lang.label}
-                  </DropdownMenuItem>
-                ))}
+              <DropdownMenuContent align="end" className="min-w-[110px]">
+                {languages.map((lang) => {
+                  const Flag = flagComponents[lang.code];
+                  return (
+                    <DropdownMenuItem
+                      key={lang.code}
+                      onClick={() => setLanguage(lang.code)}
+                      className={`gap-2 ${lang.code === language ? "font-bold" : ""}`}
+                    >
+                      <Flag className="w-5 h-3.5 rounded-[2px] overflow-hidden" />
+                      {lang.label}
+                    </DropdownMenuItem>
+                  );
+                })}
               </DropdownMenuContent>
             </DropdownMenu>
           </nav>
@@ -132,23 +171,26 @@ const Header = () => {
               ))}
               {/* Mobile language selector */}
               <div className="flex gap-3 pt-2 border-t border-white/20">
-                {languages.map((lang) => (
-                  <button
-                    key={lang.code}
-                    onClick={() => {
-                      setLanguage(lang.code);
-                      setIsMenuOpen(false);
-                    }}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-semibold transition-colors ${
-                      lang.code === language
-                        ? "bg-primary text-primary-foreground"
-                        : "text-white/70 hover:text-white"
-                    }`}
-                  >
-                    <span className="text-base leading-none">{lang.flag}</span>
-                    {lang.label}
-                  </button>
-                ))}
+                {languages.map((lang) => {
+                  const Flag = flagComponents[lang.code];
+                  return (
+                    <button
+                      key={lang.code}
+                      onClick={() => {
+                        setLanguage(lang.code);
+                        setIsMenuOpen(false);
+                      }}
+                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-semibold transition-colors ${
+                        lang.code === language
+                          ? "bg-primary text-primary-foreground"
+                          : "text-white/70 hover:text-white"
+                      }`}
+                    >
+                      <Flag className="w-5 h-3.5 rounded-[2px] overflow-hidden" />
+                      {lang.label}
+                    </button>
+                  );
+                })}
               </div>
             </nav>
           </div>
