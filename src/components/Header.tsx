@@ -93,17 +93,19 @@ const Header = () => {
 
             {/* Language Dropdown */}
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center gap-1 text-white/90 hover:text-white transition-colors font-semibold text-sm tracking-wide outline-none">
+              <DropdownMenuTrigger className="flex items-center gap-1.5 text-white/90 hover:text-white transition-colors font-semibold text-sm tracking-wide outline-none drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">
+                <span className="text-base leading-none">{languages.find((l) => l.code === language)?.flag}</span>
                 {currentLangLabel}
                 <ChevronDown className="w-4 h-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="min-w-[80px]">
+              <DropdownMenuContent align="end" className="min-w-[100px]">
                 {languages.map((lang) => (
                   <DropdownMenuItem
                     key={lang.code}
                     onClick={() => setLanguage(lang.code)}
-                    className={lang.code === language ? "font-bold" : ""}
+                    className={`gap-2 ${lang.code === language ? "font-bold" : ""}`}
                   >
+                    <span className="text-base leading-none">{lang.flag}</span>
                     {lang.label}
                   </DropdownMenuItem>
                 ))}
