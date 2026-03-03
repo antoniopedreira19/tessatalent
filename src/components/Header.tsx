@@ -16,10 +16,10 @@ const navKeys = [
   { key: "nav.cases", id: "case" },
 ];
 
-const languages: { code: Language; label: string }[] = [
-  { code: "pt-BR", label: "PT" },
-  { code: "en", label: "EN" },
-  { code: "es", label: "ES" },
+const languages: { code: Language; label: string; flag: string }[] = [
+  { code: "pt-BR", label: "PT", flag: "🇧🇷" },
+  { code: "en", label: "EN", flag: "🇺🇸" },
+  { code: "es", label: "ES", flag: "🇪🇸" },
 ];
 
 const Header = () => {
