@@ -1,26 +1,37 @@
 
 
-## Plano: Configurar favicon corretamente para o Google
+## Diagnóstico
 
-### Situação atual
-- O favicon está hospedado no Supabase: `https://jshkvchtckivjhiuayih.supabase.co/storage/v1/object/public/images/Favicon%20TESSA%20V3%20(1)%20(1).png`
-- Não existe tag `<link rel="icon">` explícita — apenas `apple-touch-icon`
-- O Google ignora `apple-touch-icon` e não encontra o favicon
+Analisando os screenshots do dispositivo real vs o preview, identifiquei o problema principal:
 
-### Sobre usar a mesma imagem do Supabase
-Sim, é possível! Podemos referenciar diretamente a URL do Supabase nas tags `<link rel="icon">`. Não precisa baixar nada — basta apontar para lá. Alternativamente, se você tiver o arquivo PNG do favicon, pode fazer upload aqui e copiamos para a pasta `public/`.
+**Overflow horizontal** -- Elementos com animações framer-motion (como `AnimatedSection` com `x: -40` ou `x: 40`) criam conteúdo fora da viewport antes de animar. Como não há `overflow-x: hidden` no `body` ou no `#root`, isso gera uma barra de rolagem horizontal invisível. No celular real, o usuário pode arrastar o conteúdo para o lado, causando o efeito de "layout espremido" que você vê.
 
-### O que será feito no `index.html`
-Substituir a tag `apple-touch-icon` atual pelo bloco completo:
+Isso explica o comportamento "fica um tempo com um layout e depois muda": a animação começa com elementos deslocados lateralmente, expandindo a largura da página, e depois eles se movem para a posição correta.
 
-```html
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="96x96" href="https://jshkvchtckivjhiuayih.supabase.co/storage/v1/object/public/images/Favicon%20TESSA%20V3%20(1)%20(1).png">
-<link rel="icon" type="image/png" sizes="192x192" href="https://jshkvchtckivjhiuayih.supabase.co/storage/v1/object/public/images/Favicon%20TESSA%20V3%20(1)%20(1).png">
-<link rel="apple-touch-icon" sizes="180x180" href="https://jshkvchtckivjhiuayih.supabase.co/storage/v1/object/public/images/Favicon%20TESSA%20V3%20(1)%20(1).png">
+## Plano de correção
+
+### 1. Adicionar `overflow-x: hidden` no CSS global (`src/index.css`)
+
+Adicionar no bloco `body`:
+```css
+overflow-x: hidden;
 ```
 
-Isso garante que o Googlebot-Image encontre a tag `rel="icon"` com PNG explícito. O `?v=3` pode ser adicionado para forçar cache-busting.
+Isso impede qualquer rolagem horizontal causada por animações ou elementos fora da viewport.
 
-**Recomendação:** Se quiser mais confiabilidade (sem depender do Supabase estar acessível), faça upload da imagem aqui e copiamos para `public/favicon.png`. Caso contrário, seguimos com a URL do Supabase direto.
+### 2. Remover `App.css` (arquivo legado do Vite)
+
+O arquivo `src/App.css` contém estilos do template padrão do Vite (`#root { max-width: 1280px; padding: 2rem }`) que não são usados mas podem causar conflitos se acidentalmente importados. Será deletado.
+
+### 3. Ajustes finos de padding/espaçamento mobile nas seções
+
+Revisar cada seção para garantir que o padding lateral seja consistente (`px-4` ou `px-5`) e que nenhum elemento extrapole a largura da tela em dispositivos pequenos (320px-375px):
+
+- **HeroSection**: OK, já tem `px-4`
+- **ServicesSection**: OK, já tem `px-4`
+- **TechAdvisorsSection**: `max-w-5xl mx-auto` sem padding externo no mobile -- adicionar `px-4` ao section
+- **CaseSection**: Mesmo problema -- adicionar `px-4` consistente
+- **CallToActionSection**: OK
+- **StatsAndContentSection**: Seção de stats sem padding lateral no mobile -- garantir `px-4`
+- **Footer**: OK
 
