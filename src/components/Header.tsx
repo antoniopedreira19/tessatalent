@@ -14,7 +14,6 @@ const navKeys = [
   { key: "nav.techAdvisors", id: "tech-advisors" },
   { key: "nav.method", id: "methodology" },
   { key: "nav.cases", id: "case" },
-  { key: "nav.content", id: "content" },
 ];
 
 const languages: { code: Language; label: string }[] = [
