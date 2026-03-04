@@ -113,7 +113,7 @@ const Header = () => {
             className="cursor-pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            <img src="/images/tessa-logo-white.png" alt="Tessa" className="h-12 lg:h-14 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]" />
+            <img src="/images/tessa-logo-white.png" alt="Tessa" className="h-16 lg:h-20 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]" />
           </div>
 
           <nav className="hidden md:flex items-center gap-10 lg:gap-14">
