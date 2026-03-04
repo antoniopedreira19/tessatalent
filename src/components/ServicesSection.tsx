@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import { useLanguage } from "@/contexts/LanguageContext";
+import servicePerson1 from "@/assets/service-person-1.png";
+import servicePerson2 from "@/assets/service-person-2.png";
+import servicePerson3 from "@/assets/service-person-3.png";
 
 const ServicesSection = () => {
   const { t } = useLanguage();
