@@ -122,7 +122,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.heading": "More care. More performance.",
     "services.p1": "We are passionate about building technology teams that grow sustainably with humanity oriented to results.",
     "services.p2": "We reduce turnover, misalignments and financial waste with support before, during and after hiring.",
-    "services.subheading": "All with 3 flexible models:",
+    "services.subheading": "All with flexible models:",
     "services.hunting.title": "Hunting",
     "services.hunting.desc": "We identify and attract talent for critical or non-critical positions. Each process is customized to find the ideal professional for the role and company culture.",
     "services.alocacao.title": "Staff Augmentation",
