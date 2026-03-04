@@ -1,23 +1,26 @@
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import { useLanguage } from "@/contexts/LanguageContext";
+import servicePerson1 from "@/assets/service-person-1.png";
+import servicePerson2 from "@/assets/service-person-2.png";
+import servicePerson3 from "@/assets/service-person-3.png";
 
 const ServicesSection = () => {
   const { t } = useLanguage();
 
   const services = [
     {
-      image: "/images/service-hunting-v2.svg",
+      image: servicePerson1,
       title: t("services.hunting.title"),
       description: t("services.hunting.desc"),
     },
     {
-      image: "/images/service-alocacao-v2.png",
+      image: servicePerson2,
       title: t("services.alocacao.title"),
       description: t("services.alocacao.desc"),
     },
     {
-      image: "/images/service-ondemand-v2.svg",
+      image: servicePerson3,
       title: t("services.asaservice.title"),
       description: t("services.asaservice.desc"),
     },
