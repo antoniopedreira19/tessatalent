@@ -56,8 +56,7 @@ const ServicesSection = () => {
               <img
                 src={service.image}
                 alt={service.title}
-                className="absolute inset-0 w-full h-full object-cover object-center z-0"
-                style={{ transform: 'scale(1.05)' }}
+                className="absolute inset-0 w-full h-full object-cover object-top z-0"
                 loading="eager"
                 fetchPriority="high"
               />
