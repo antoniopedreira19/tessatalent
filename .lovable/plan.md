@@ -1,25 +1,37 @@
 
 
-## Resposta
+## Diagnóstico
 
-**Não**, você não precisa de tags diferentes para cada domínio para a logo aparecer. A tag `og:image` (que controla a imagem/logo que aparece ao compartilhar links) funciona igual para todos os domínios — ela usa uma URL absoluta da imagem, então qualquer domínio que sirva o mesmo `index.html` vai mostrar a mesma imagem.
+Analisando os screenshots do dispositivo real vs o preview, identifiquei o problema principal:
 
-O que **precisa ser diferente por domínio** são apenas:
-- **`google-site-verification`** — cada domínio tem seu próprio código de verificação no Google Search Console
-- **`og:url`** e **`link rel="canonical"`** — idealmente devem apontar para o domínio principal
+**Overflow horizontal** -- Elementos com animações framer-motion (como `AnimatedSection` com `x: -40` ou `x: 40`) criam conteúdo fora da viewport antes de animar. Como não há `overflow-x: hidden` no `body` ou no `#root`, isso gera uma barra de rolagem horizontal invisível. No celular real, o usuário pode arrastar o conteúdo para o lado, causando o efeito de "layout espremido" que você vê.
 
-Atualmente no seu `index.html`:
-- `og:image` já usa uma URL absoluta (R2/Cloudflare), então funciona em qualquer domínio ✅
-- `canonical` aponta para `tessait.com.br` — se `tessatalent.com` for o domínio principal, isso deveria ser atualizado
+Isso explica o comportamento "fica um tempo com um layout e depois muda": a animação começa com elementos deslocados lateralmente, expandindo a largura da página, e depois eles se movem para a posição correta.
 
-### O que precisa ser feito
+## Plano de correção
 
-1. **Adicionar a segunda tag de verificação** para `tessatalent.com`:
-   ```html
-   <meta name="google-site-verification" content="gIfF82V5t-kQcMENLA5Ghc3lRktsaI2H2SLfah44ZFA" />
-   ```
+### 1. Adicionar `overflow-x: hidden` no CSS global (`src/index.css`)
 
-2. **Atualizar o `canonical`** se `tessatalent.com` for o domínio principal (opcional, mas recomendado para SEO).
+Adicionar no bloco `body`:
+```css
+overflow-x: hidden;
+```
 
-3. **Publicar o site** após as alterações — clicar em **Publish > Update** para que as tags fiquem disponíveis no domínio.
+Isso impede qualquer rolagem horizontal causada por animações ou elementos fora da viewport.
+
+### 2. Remover `App.css` (arquivo legado do Vite)
+
+O arquivo `src/App.css` contém estilos do template padrão do Vite (`#root { max-width: 1280px; padding: 2rem }`) que não são usados mas podem causar conflitos se acidentalmente importados. Será deletado.
+
+### 3. Ajustes finos de padding/espaçamento mobile nas seções
+
+Revisar cada seção para garantir que o padding lateral seja consistente (`px-4` ou `px-5`) e que nenhum elemento extrapole a largura da tela em dispositivos pequenos (320px-375px):
+
+- **HeroSection**: OK, já tem `px-4`
+- **ServicesSection**: OK, já tem `px-4`
+- **TechAdvisorsSection**: `max-w-5xl mx-auto` sem padding externo no mobile -- adicionar `px-4` ao section
+- **CaseSection**: Mesmo problema -- adicionar `px-4` consistente
+- **CallToActionSection**: OK
+- **StatsAndContentSection**: Seção de stats sem padding lateral no mobile -- garantir `px-4`
+- **Footer**: OK
 
