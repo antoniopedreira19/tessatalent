@@ -20,7 +20,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.heading": "Mais cuidado. Mais performance.",
     "services.p1": "Somos vibrados em formar times de tecnologia que crescem de forma sustentável e com humanidade orientada a resultado.",
     "services.p2": "Reduzimos turnover, desalinhamentos e desperdício financeiro com acompanhamento antes, durante e depois da contratação.",
-    "services.subheading": "Tudo com 3 modelos flexíveis:",
+    "services.subheading": "Tudo com modelos flexíveis:",
     "services.hunting.title": "Hunting",
     "services.hunting.desc": "Identificamos e atraímos talentos para posições críticas ou não. Cada processo é personalizado para encontrar o profissional ideal para a vaga e cultura da empresa.",
     "services.alocacao.title": "Alocação",
@@ -97,7 +97,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "content.blog3": "Tech Advisor: a contratação que pode fortalece sua empresa",
 
     // Footer
-    "footer.heading": "Fale com a <bold>tessa</bold> Talent",
+    "footer.heading": "Fale com a <bold>tessa</bold>",
     "footer.subtitle": "Somos a parceria estratégica que dá eficiência aos recursos humanos, tecnológicos e financeiros da sua empresa.",
     "footer.whatsapp": "Chame no WhatsApp",
     "footer.rights": "Tessa Talent | 2026 | Todos direitos reservados",
@@ -122,7 +122,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.heading": "More care. More performance.",
     "services.p1": "We are passionate about building technology teams that grow sustainably with humanity oriented to results.",
     "services.p2": "We reduce turnover, misalignments and financial waste with support before, during and after hiring.",
-    "services.subheading": "All with 3 flexible models:",
+    "services.subheading": "All with flexible models:",
     "services.hunting.title": "Hunting",
     "services.hunting.desc": "We identify and attract talent for critical or non-critical positions. Each process is customized to find the ideal professional for the role and company culture.",
     "services.alocacao.title": "Staff Augmentation",
@@ -199,7 +199,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "content.blog3": "Tech Advisor: the hire that can strengthen your company",
 
     // Footer
-    "footer.heading": "Talk to <bold>tessa</bold> Talent",
+    "footer.heading": "Talk to <bold>tessa</bold>",
     "footer.subtitle": "We are the strategic partnership that brings efficiency to your company's human, technological and financial resources.",
     "footer.whatsapp": "Chat on WhatsApp",
     "footer.rights": "Tessa Talent | 2026 | All rights reserved",
@@ -224,7 +224,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "services.heading": "Más cuidado. Más rendimiento.",
     "services.p1": "Nos apasiona formar equipos de tecnología que crecen de forma sostenible y con humanidad orientada a resultados.",
     "services.p2": "Reducimos rotación, desalineamientos y desperdicio financiero con acompañamiento antes, durante y después de la contratación.",
-    "services.subheading": "Todo con 3 modelos flexibles:",
+    "services.subheading": "Todo con modelos flexibles:",
     "services.hunting.title": "Hunting",
     "services.hunting.desc": "Identificamos y atraemos talentos para posiciones críticas o no. Cada proceso es personalizado para encontrar al profesional ideal para el puesto y la cultura de la empresa.",
     "services.alocacao.title": "Asignación",
@@ -301,7 +301,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "content.blog3": "Tech Advisor: la contratación que puede fortalecer tu empresa",
 
     // Footer
-    "footer.heading": "Habla con <bold>tessa</bold> Talent",
+    "footer.heading": "Habla con <bold>tessa</bold>",
     "footer.subtitle": "Somos la alianza estratégica que da eficiencia a los recursos humanos, tecnológicos y financieros de tu empresa.",
     "footer.whatsapp": "Escríbenos en WhatsApp",
     "footer.rights": "Tessa Talent | 2026 | Todos los derechos reservados",
