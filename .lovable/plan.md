@@ -1,31 +1,37 @@
 
 
-## Plano: Corrigir favicon para o Google Search
+## Diagnóstico
 
-### Problema
-O Google está mostrando o ícone do Lovable porque a primeira tag `<link rel="icon" href="/favicon.ico">` aponta para o arquivo `public/favicon.ico` que é o ícone padrão do Lovable/Vite. Quando o Google não consegue resolver os PNGs externos, ele cai nesse fallback `.ico`.
+Analisando os screenshots do dispositivo real vs o preview, identifiquei o problema principal:
 
-### Solução (2 alterações)
+**Overflow horizontal** -- Elementos com animações framer-motion (como `AnimatedSection` com `x: -40` ou `x: 40`) criam conteúdo fora da viewport antes de animar. Como não há `overflow-x: hidden` no `body` ou no `#root`, isso gera uma barra de rolagem horizontal invisível. No celular real, o usuário pode arrastar o conteúdo para o lado, causando o efeito de "layout espremido" que você vê.
 
-1. **Remover a linha do `favicon.ico`** no `index.html` (linha 22) — elimina o fallback para o ícone do Lovable.
+Isso explica o comportamento "fica um tempo com um layout e depois muda": a animação começa com elementos deslocados lateralmente, expandindo a largura da página, e depois eles se movem para a posição correta.
 
-2. **Adicionar um fallback PNG local** — baixar a imagem do Supabase e também referenciar localmente como segurança. Como não podemos baixar automaticamente do Supabase para a pasta `public/`, vamos:
-   - Remover `<link rel="icon" href="/favicon.ico" sizes="any">` 
-   - Mover a tag PNG de 96x96 para ser a **primeira** tag de ícone (sem o fallback .ico)
-   - Adicionar também `sizes="32x32"` como variante extra apontando para o mesmo URL do Supabase
+## Plano de correção
 
-### Resultado no `index.html`
-```html
-<!-- REMOVER esta linha: -->
-<link rel="icon" href="/favicon.ico" sizes="any">
+### 1. Adicionar `overflow-x: hidden` no CSS global (`src/index.css`)
 
-<!-- MANTER estas (já existentes): -->
-<link rel="icon" type="image/png" sizes="96x96" href="https://jshkvchtckivjhiuayih.supabase.co/...png?v=3">
-<link rel="icon" type="image/png" sizes="192x192" href="https://jshkvchtckivjhiuayih.supabase.co/...png?v=3">
-
-<!-- ADICIONAR versão 32x32 para compatibilidade máxima: -->
-<link rel="icon" type="image/png" sizes="32x32" href="https://jshkvchtckivjhiuayih.supabase.co/...png?v=3">
+Adicionar no bloco `body`:
+```css
+overflow-x: hidden;
 ```
 
-Isso garante que o Google não encontre nenhum `.ico` como fallback e seja forçado a usar o PNG da Tessa. Após o deploy, solicite reindexação no Google Search Console.
+Isso impede qualquer rolagem horizontal causada por animações ou elementos fora da viewport.
+
+### 2. Remover `App.css` (arquivo legado do Vite)
+
+O arquivo `src/App.css` contém estilos do template padrão do Vite (`#root { max-width: 1280px; padding: 2rem }`) que não são usados mas podem causar conflitos se acidentalmente importados. Será deletado.
+
+### 3. Ajustes finos de padding/espaçamento mobile nas seções
+
+Revisar cada seção para garantir que o padding lateral seja consistente (`px-4` ou `px-5`) e que nenhum elemento extrapole a largura da tela em dispositivos pequenos (320px-375px):
+
+- **HeroSection**: OK, já tem `px-4`
+- **ServicesSection**: OK, já tem `px-4`
+- **TechAdvisorsSection**: `max-w-5xl mx-auto` sem padding externo no mobile -- adicionar `px-4` ao section
+- **CaseSection**: Mesmo problema -- adicionar `px-4` consistente
+- **CallToActionSection**: OK
+- **StatsAndContentSection**: Seção de stats sem padding lateral no mobile -- garantir `px-4`
+- **Footer**: OK
 
