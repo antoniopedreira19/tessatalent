@@ -97,7 +97,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "content.blog3": "Tech Advisor: a contratação que pode fortalece sua empresa",
 
     // Footer
-    "footer.heading": "Fale com a <bold>tessa</bold> Talent",
+    "footer.heading": "Fale com a <bold>tessa</bold>",
     "footer.subtitle": "Somos a parceria estratégica que dá eficiência aos recursos humanos, tecnológicos e financeiros da sua empresa.",
     "footer.whatsapp": "Chame no WhatsApp",
     "footer.rights": "Tessa Talent | 2026 | Todos direitos reservados",
