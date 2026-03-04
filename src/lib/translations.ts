@@ -199,7 +199,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "content.blog3": "Tech Advisor: the hire that can strengthen your company",
 
     // Footer
-    "footer.heading": "Talk to <bold>tessa</bold> Talent",
+    "footer.heading": "Talk to <bold>tessa</bold>",
     "footer.subtitle": "We are the strategic partnership that brings efficiency to your company's human, technological and financial resources.",
     "footer.whatsapp": "Chat on WhatsApp",
     "footer.rights": "Tessa Talent | 2026 | All rights reserved",
