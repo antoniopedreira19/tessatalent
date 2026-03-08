@@ -12,7 +12,7 @@ const HeroSection = () => {
       <img
         src="/images/hero-section.jpg"
         alt={t("hero.imgAlt")}
-        className="absolute inset-0 w-full h-full object-cover object-center"
+        className="absolute inset-0 w-full h-full object-cover object-[center_20%] md:object-[center_30%]"
         loading="eager"
         fetchPriority="high"
         decoding="async"
