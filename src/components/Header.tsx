@@ -86,7 +86,6 @@ const Header = () => {
         isAtTop ? "" : "bg-foreground/80 backdrop-blur-md shadow-lg"
       }`}
     >
-    >
       <div className="w-full px-6 lg:px-10">
         <div className="flex items-center justify-between h-20">
           <div
