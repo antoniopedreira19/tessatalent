@@ -59,10 +59,8 @@ const languages: { code: Language; label: string }[] = [
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [visible, setVisible] = useState(true);
   const [isAtTop, setIsAtTop] = useState(true);
-  const lastScrollY = useRef(0);
-  const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const { language, setLanguage, t } = useLanguage();
   const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
