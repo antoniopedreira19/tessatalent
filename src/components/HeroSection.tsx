@@ -10,9 +10,9 @@ const HeroSection = () => {
       style={{ fontFamily: "'Sansation', sans-serif" }}
     >
       <img
-        src="/images/hero-woman.jpg"
+        src="/images/hero-section.jpg"
         alt={t("hero.imgAlt")}
-        className="absolute inset-0 w-full h-full object-cover object-[70%_20%] md:object-[75%_top] lg:object-right"
+        className="absolute inset-0 w-full h-full object-cover object-center"
         loading="eager"
         fetchPriority="high"
         decoding="async"
