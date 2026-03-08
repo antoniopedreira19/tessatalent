@@ -1,5 +1,5 @@
 import { Menu, X, ChevronDown } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import type { Language } from "@/lib/translations";
 import {
@@ -59,38 +59,17 @@ const languages: { code: Language; label: string }[] = [
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [visible, setVisible] = useState(true);
   const [isAtTop, setIsAtTop] = useState(true);
-  const lastScrollY = useRef(0);
-  const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
-      const atTop = currentY < 80;
-      setIsAtTop(atTop);
-
-      if (atTop) {
-        setVisible(true);
-        if (hideTimer.current) clearTimeout(hideTimer.current);
-      } else if (currentY < lastScrollY.current) {
-        setVisible(true);
-        if (hideTimer.current) clearTimeout(hideTimer.current);
-        hideTimer.current = setTimeout(() => setVisible(false), 1500);
-      } else {
-        setVisible(false);
-        if (hideTimer.current) clearTimeout(hideTimer.current);
-      }
-
-      lastScrollY.current = currentY;
+      setIsAtTop(currentY < 80);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (hideTimer.current) clearTimeout(hideTimer.current);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (id: string) => {
@@ -104,8 +83,8 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        visible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
-      } ${isAtTop ? "" : "bg-foreground/80 backdrop-blur-md shadow-lg"}`}
+        isAtTop ? "" : "bg-foreground/80 backdrop-blur-md shadow-lg"
+      }`}
     >
       <div className="w-full px-6 lg:px-10">
         <div className="flex items-center justify-between h-20">
