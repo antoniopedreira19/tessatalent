@@ -68,29 +68,11 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
-      const atTop = currentY < 80;
-      setIsAtTop(atTop);
-
-      if (atTop) {
-        setVisible(true);
-        if (hideTimer.current) clearTimeout(hideTimer.current);
-      } else if (currentY < lastScrollY.current) {
-        setVisible(true);
-        if (hideTimer.current) clearTimeout(hideTimer.current);
-        hideTimer.current = setTimeout(() => setVisible(false), 1500);
-      } else {
-        setVisible(false);
-        if (hideTimer.current) clearTimeout(hideTimer.current);
-      }
-
-      lastScrollY.current = currentY;
+      setIsAtTop(currentY < 80);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (hideTimer.current) clearTimeout(hideTimer.current);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (id: string) => {
