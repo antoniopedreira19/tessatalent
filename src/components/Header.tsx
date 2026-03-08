@@ -83,8 +83,9 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        visible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
-      } ${isAtTop ? "" : "bg-foreground/80 backdrop-blur-md shadow-lg"}`}
+        isAtTop ? "" : "bg-foreground/80 backdrop-blur-md shadow-lg"
+      }`}
+    >
     >
       <div className="w-full px-6 lg:px-10">
         <div className="flex items-center justify-between h-20">
